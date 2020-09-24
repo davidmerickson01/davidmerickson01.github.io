@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Asteroids 3</title>
+    <title>Asteroids 4</title>
 </head>
 <body>
 Use left/right arrows to move, space to fire!
+Or use mouse or touchpad to move and fire.
 <canvas id="myCanvas" width="480" height="320" style="background-color:#000;display:block;margin:0 auto"></canvas>
 
 <script>
@@ -22,12 +23,16 @@ var asteroids = Array();
 
 document.addEventListener("keydown", keyDownHandler);
 document.addEventListener("keyup", keyUpHandler);
+document.addEventListener("touchstart", touchHandler);
+document.addEventListener("touchmove", touchHandler);
+document.addEventListener("click", clickHandler);
+document.addEventListener("mousemove", mouseHandler);
 
 var leftDown = false;
 var rightDown = false;
 var spaceDown = false;
 function keyDownHandler(e) {
-    console.log(e.key)
+    //console.log(e.key)
     // use keyDown/keyUp to allow continuous movement with multiple keys
     if (e.key == "Right" || e.key == "ArrowRight") {
         rightDown = true;
@@ -50,6 +55,35 @@ function keyUpHandler(e) {
     else if (e.key == " ") {
         spaceDown = false;
     }
+}
+
+function fireBullet() {
+    if (bullets.length < 10) {
+        bullets.push(new Bullet(angle))
+        return true;
+    }
+    return false;
+}
+
+function clickHandler(e) {
+    fireBullet();
+}
+
+function setShipAngle(x,y) {
+    angle = Math.atan(y/x) * 180 / Math.PI;
+    if (x < 0) angle += 180;
+}
+
+function mouseHandler(e) {
+    let x = e.clientX - canvas.offsetLeft - center_x;
+    let y = e.clientY - canvas.offsetTop - center_y;
+    setShipAngle(x,y);
+}
+
+function touchHandler(e) {
+    let x = e.touches[0].clientX - canvas.offsetLeft - center_x;
+    let y = e.touches[0].clientY - canvas.offsetTop - center_y;
+    setShipAngle(x,y);
 }
 
 class Bullet {
@@ -176,15 +210,14 @@ function draw() {
         if (x == canvas.width-1) dx = Math.random() * -1;
         let dy = Math.random()*2-1;
         if (y == canvas.height-1) dy = Math.random() * -1;
-        console.log(x,y,dx,dy);
+        //console.log(x,y,dx,dy);
         asteroids.push(new Asteroid(Math.random() * 10 + 3, x, y, dx, dy));
     }
     if (leftDown) angle -= 3;
     else if (rightDown) angle += 3;
     angle = angle % 360;
-    if (spaceDown && !fire_cnt && bullets.length < 10) {
-        bullets.push(new Bullet(angle))
-        fire_cnt = 15;
+    if (spaceDown && !fire_cnt) {
+        if (fireBullet()) fire_cnt = 15;
     }
     if (fire_cnt) fire_cnt--;
     

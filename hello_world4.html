@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<body>
+<canvas id="myCanvas" width="480" height="320" style="background-color:#aaa;display:block;margin:0 auto"></canvas>
+<script>
+var canvas = document.getElementById("myCanvas");
+var ctx = canvas.getContext("2d");
+// https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Drawing_text
+ctx.font = '48px serif';
+ctx.fillStyle = "rgb(100,255,100)";
+ctx.fillText("Hello World!", 10, 50);
+</script>
+</body>
+</html>
