@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html>
 <body>
-In Google Chrome, do the following:
-<ul>
-<li>Click on the "three dot" menu in the upper right
-<li>Then "More tools"
-<li>Then "Developer tools" (notice the shortcut: ctrl+shift+I)
-<li>Click on "Console" tab (if not already there)
-</ul>
+<button onClick="click_function()">Click me!</button>
+<div id=panel></div>
 <script>
-console.log("Hello World!");
+function click_function()
+{
+    document.getElementById("panel").innerHTML = "Hello World!";
+}
 </script>
 </body>
 </html>
