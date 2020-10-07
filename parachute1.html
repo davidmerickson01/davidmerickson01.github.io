@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Parachute 1</title>
+</head>
+<body>
+<canvas id="myCanvas" width="480" height="320" style="background-color:#eee;display:block;margin:0 auto"></canvas>
+
+<script>
+var canvas = document.getElementById("myCanvas");
+var ctx = canvas.getContext("2d");
+
+function drawPlane(x,y)
+{
+  ctx.beginPath();
+  ctx.moveTo(x,y);
+  ctx.lineTo(x+6,y);
+  ctx.lineTo(x+8,y+5);
+  ctx.lineTo(x+40,y+5);
+  ctx.lineTo(x+45,y+10);
+  ctx.lineTo(x+30,y+10);
+  ctx.lineTo(x+20,y+20);
+  ctx.lineTo(x+17,y+20);
+  ctx.lineTo(x+20,y+10);
+  ctx.lineTo(x+3,y+10);
+  ctx.closePath();
+  ctx.fillStyle = "rgb(255,0,0)";
+  ctx.fill();
+}
+
+function drawParachute(x,y)
+{
+  ctx.fillStyle = "rgb(120,100,1000)";
+  ctx.strokeStyle = "rgb(100,100,1000)";
+  ctx.beginPath();
+  ctx.arc(x+10, y+10, 10, 0, Math.PI, true);
+  ctx.closePath();
+  ctx.fill();
+  ctx.beginPath();
+  ctx.moveTo(x,y+10);
+  ctx.lineTo(x+10,y+20);
+  ctx.moveTo(x+7,y+10);
+  ctx.lineTo(x+10,y+20);
+  ctx.moveTo(x+14,y+10);
+  ctx.lineTo(x+10,y+20);
+  ctx.moveTo(x+20,y+10);
+  ctx.lineTo(x+10,y+20);
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.arc(x+10, y+20, 3, 0, Math.PI*2, true);
+  ctx.closePath();
+  ctx.fill();
+}
+
+document.addEventListener("keydown", keyDownHandler);
+
+var drop = false;
+var plane = {x:0, y:10, dx:0.6}, parachute = {};
+wind = 0.4;
+
+function keyDownHandler(e) {
+    if(e.key == " ") {
+        drop = true;
+        parachute.x = plane.x+10;
+        parachute.y = plane.y+5;
+        parachute.dy = 0.4;
+    }
+}
+
+function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.font = '20px serif';
+    ctx.fillStyle = "rgb(0,0,0)";
+    ctx.fillText("Wind: "+Math.abs(Math.round(wind*10))+"mph "+(wind<0?"Left":"Right"), 10, canvas.height - 10);
+    plane.x += plane.dx;
+    drawPlane(plane.x,plane.y);
+    if (drop) {
+        parachute.y += parachute.dy;
+        parachute.x += wind;
+        drawParachute(parachute.x,parachute.y);
+    }
+}
+
+setInterval(draw, 10);
+</script>
+
+</body>
+</html>
