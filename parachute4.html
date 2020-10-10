@@ -70,7 +70,7 @@ var parachute_x, parachute_y, parachute_dy;
 var platform_y = canvas.height - 60;
 var wind;
 var screen = 0;
-const platform_width = 20;
+var platform_width;
 const platform_height = 20;
 const parachute_width = 20;
 const parachute_height = 20;
@@ -124,6 +124,7 @@ function mainLoop() {
     case 0:
         /* abs(wind) <= 0.5 */
         wind = Math.random() - 0.5;
+        platform_width = Math.random() * 60 + 10;
         platform_x = Math.random() * (canvas.width-platform_width);
         drop = false;
         plane_x = 0;
