@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Parachute 1</title>
+    <title>Parachute 2</title>
 </head>
 <body>
 <canvas id="myCanvas" width="480" height="320" style="background-color:#eee;display:block;margin:0 auto"></canvas>
@@ -52,8 +52,55 @@ function drawParachute(x,y)
     ctx.fill();
 }
 
-drawPlane(100,100);
-drawParachute(100,200);
+function drawPlatform(x,y)
+{
+    // ground
+    ctx.fillStyle = "rgb(153, 102, 51)";
+    ctx.fillRect(0,y+platform_height,canvas.width,3);
+    // platform
+    ctx.fillStyle = "rgb(102, 102, 153)";
+    ctx.fillRect(x,y,platform_width,platform_height);
+}
+
+document.addEventListener("keydown", keyDownHandler);
+
+var drop = false;
+var plane_x = 0, plane_y = 10, plane_dx = 0.5;
+var parachute_x, parachute_y, parachute_dy;
+const platform_width = 20;
+const platform_height = 20;
+var platform_x = Math.random() * (canvas.width-platform_width);
+var platform_y = canvas.height - 60;
+var wind = 0.1;
+const parachute_width = 20;
+const parachute_height = 20;
+
+function keyDownHandler(e) {
+    if (e.key == " ") {
+        drop = true;
+        parachute_x = plane_x+10;
+        parachute_y = plane_y+5;
+        parachute_dy = 0.4;
+    }
+}
+
+function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    plane_x += plane_dx;
+    drawPlane(plane_x,plane_y);
+    drawPlatform(platform_x, platform_y);
+    if (drop) {
+        parachute_y += parachute_dy;
+        parachute_x += wind;
+        drawParachute(parachute_x,parachute_y);
+    }
+}
+
+function mainLoop() {
+    draw();
+}
+
+setInterval(mainLoop, 10);
 </script>
 
 </body>

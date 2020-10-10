@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Parachute 4</title>
+</head>
+<body>
+<canvas id="myCanvas" width="480" height="320" style="background-color:#eee;display:block;margin:0 auto"></canvas>
+
+<script>
+var canvas = document.getElementById("myCanvas");
+var ctx = canvas.getContext("2d");
+
+function drawPlane(x,y)
+{
+    ctx.beginPath();
+    ctx.moveTo(x,y);
+    ctx.lineTo(x+6,y);
+    ctx.lineTo(x+8,y+5);
+    ctx.lineTo(x+40,y+5);
+    ctx.lineTo(x+45,y+10);
+    ctx.lineTo(x+30,y+10);
+    ctx.lineTo(x+20,y+20);
+    ctx.lineTo(x+17,y+20);
+    ctx.lineTo(x+20,y+10);
+    ctx.lineTo(x+3,y+10);
+    ctx.closePath();
+    ctx.fillStyle = "rgb(51, 102, 0)";
+    ctx.fill();
+}
+
+function drawParachute(x,y)
+{
+    ctx.fillStyle = "rgb(204, 0, 0)";
+    ctx.strokeStyle = ctx.fillStyle;
+    ctx.beginPath();
+    ctx.arc(x+10, y+10, 10, 0, Math.PI, true);
+    ctx.closePath();
+    ctx.fill();
+    ctx.beginPath();
+    ctx.moveTo(x,y+10);
+    ctx.lineTo(x+10,y+20);
+    ctx.moveTo(x+7,y+10);
+    ctx.lineTo(x+10,y+20);
+    ctx.moveTo(x+14,y+10);
+    ctx.lineTo(x+10,y+20);
+    ctx.moveTo(x+20,y+10);
+    ctx.lineTo(x+10,y+20);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.arc(x+10, y+20, 3, 0, Math.PI*2, true);
+    ctx.closePath();
+    ctx.fill();
+}
+
+function drawPlatform(x,y)
+{
+    // ground
+    ctx.fillStyle = "rgb(153, 102, 51)";
+    ctx.fillRect(0,y+platform_height,canvas.width,3);
+    // platform
+    ctx.fillStyle = "rgb(102, 102, 153)";
+    ctx.fillRect(x,y,platform_width,platform_height);
+}
+
+document.addEventListener("keydown", keyDownHandler);
+
+var drop = false;
+var plane_x = 0, plane_y = 10, plane_dx = 0.5;
+var parachute_x, parachute_y, parachute_dy;
+var platform_y = canvas.height - 60;
+var wind;
+var screen = 0;
+const platform_width = 20;
+const platform_height = 20;
+const parachute_width = 20;
+const parachute_height = 20;
+
+function keyDownHandler(e) {
+    if (e.key == " ") {
+        if (screen == 1) {
+            screen = 2;
+        }
+        else if (screen == 2 && !drop) {
+            drop = true;
+            parachute_x = plane_x+10;
+            parachute_y = plane_y+5;
+            parachute_dy = 0.4;
+        }
+        else if (screen == 4) {
+            screen = 0;
+        }
+    }
+}
+
+function drawWindLabel(ctx)
+{
+    ctx.font = '20px serif';
+    ctx.fillStyle = "rgb(0,0,0)";
+    ctx.fillText("Wind: "+Math.abs(Math.round(wind*100)/10)+"mph "+(wind<0?"Left":"Right"), 10, canvas.height - 10);
+}
+
+function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    drawWindLabel(ctx);
+    plane_x += plane_dx;
+    drawPlane(plane_x,plane_y);
+    drawPlatform(platform_x, platform_y);
+    if (drop) {
+        parachute_y += parachute_dy;
+        parachute_x += wind;
+        drawParachute(parachute_x,parachute_y);
+    }
+}
+
+/* Screens
+0 - intro
+1 - wait for keypress (don't keep redrawing screen 0)
+2 - game
+3 - result
+4 - wait for keypress (don't keep redrawing screen 3)
+*/
+function mainLoop() {
+    switch (screen) {
+    case 0:
+        /* abs(wind) <= 0.5 */
+        wind = Math.random() - 0.5;
+        platform_x = Math.random() * (canvas.width-platform_width);
+        drop = false;
+        plane_x = 0;
+
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.font = '20px serif';
+        ctx.fillStyle = "rgb(0,0,0)";
+        ctx.fillText("Press SPACE to Start, SPACE to Jump", 75, canvas.height/2);
+        drawPlatform(platform_x, platform_y);
+        drawWindLabel(ctx);
+        screen = 1;
+        break;
+    case 2:
+        draw();
+        if (drop) {
+            // check for win
+            if (Math.abs(parachute_y + parachute_height - platform_y) < 2 && 
+                parachute_x + 10 >= platform_x &&
+                parachute_x - 10 + parachute_width <= platform_x + platform_width) 
+            {
+                screen = 3;
+                win = true;
+            }
+            // check for loss
+            else if (parachute_y >= platform_y ||
+                parachute_x <= 0 ||
+                parachute_x+platform_width >= canvas.width)
+            {
+                screen = 3;
+                win = false;
+            }
+        }
+        break;
+    case 3:
+        draw();
+        ctx.font = '20px serif';
+        ctx.fillStyle = "rgb(0,0,0)";
+        if (win) {
+            ctx.fillText("You win!", 180, canvas.height/2 - 40);
+        }
+        else {
+            ctx.fillText("You lose!", 180, canvas.height/2 - 40);
+        }
+        ctx.fillText("Press SPACE to play again.", 120, canvas.height/2);
+        screen = 4;
+        break;
+    }
+}
+
+setInterval(mainLoop, 10);
+</script>
+
+</body>
+</html>
