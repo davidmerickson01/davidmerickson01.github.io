@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html>
 <body>
-In Google Chrome, do the following:
-<ul>
-<li>Click on the "three dot" menu in the upper right
-<li>Then "More tools"
-<li>Then "Developer tools" (notice the shortcut: ctrl+shift+I)
-<li>Click on "Console" tab (if not already there)
-</ul>
+<canvas id="myCanvas" width="480" height="320" style="background-color:#aaa;display:block;margin:0 auto"></canvas>
 <script>
-console.log("Hello World!");
+var canvas = document.getElementById("myCanvas");
+var ctx = canvas.getContext("2d");
+// https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Drawing_text
+ctx.font = '48px serif';
+ctx.fillStyle = "rgb(100,255,100)";
+ctx.fillText("Hello World!", 10, 50);
 </script>
 </body>
 </html>

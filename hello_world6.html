@@ -8,31 +8,25 @@ var ctx = canvas.getContext("2d");
 // https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Drawing_shapes
 // each character is 50 wide, 100 high
 
+var img = new Image();
+img.src = "hello.png";
+
 function draw(x,y) {
-    // H
-    ctx.fillStyle = "rgb(100,255,100)";
-    ctx.fillRect(x, y, 10, 100);
-    ctx.fillRect(x, y+45, 50, 10);
-    ctx.fillRect(x+40, y, 10, 100);
-    // E
-    x = x +70
-    ctx.fillStyle = "rgb(255,100,100)";
-    ctx.fillRect(x, y, 10, 100);
-    ctx.fillRect(x, y, 50, 10);
-    ctx.fillRect(x, y+45, 50, 10);
-    ctx.fillRect(x, y+90, 50, 10);
+    ctx.drawImage(img, x, y, 200, 100);
 }
 
 var x = 0;
 function mainLoop() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    /* to see this in Chrome, press ctrl-shift-i.
-    or, go to the "three dot" menu", "more tools", "developer tools", then
-    choose the "console" tab. */
     console.log("x = ",x);
-    draw(x,10);
+    draw(x,0);
     x = x + 1;
     if (x == canvas.width) x = 0;
+    
+    // TODO:
+    // what if you increase y?
+    // instead of adding 1, create "var dx = 1;" then add that.
+    // when you hit canvas.width or canvas.height, how would you have it bounce off?
 }
 
 setInterval(mainLoop, 10);

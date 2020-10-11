@@ -5,10 +5,55 @@
 <script>
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
-// https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Drawing_text
-ctx.font = '48px serif';
+// https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Drawing_shapes
+// each character is 50 wide, 100 high
+// H
+x = 10
+y = 10
 ctx.fillStyle = "rgb(100,255,100)";
-ctx.fillText("Hello World!", 10, 50);
+ctx.fillRect(x, y, 10, 100);
+ctx.fillRect(x, y+45, 50, 10);
+ctx.fillRect(x+40, y, 10, 100);
+// E
+x = 70
+ctx.fillStyle = "rgb(255,100,100)";
+ctx.fillRect(x, y, 10, 100);
+ctx.fillRect(x, y, 50, 10);
+ctx.fillRect(x, y+45, 50, 10);
+ctx.fillRect(x, y+90, 50, 10);
+
+// TODO: LLO WORLD!
+
+// paths and lines
+x = 10;
+y = 120;
+ctx.beginPath();
+ctx.moveTo(x,y);
+ctx.lineTo(x,y+100);
+ctx.lineTo(x+10,y+100);
+ctx.lineTo(x+10,y+55);
+ctx.lineTo(x+40,y+55);
+ctx.lineTo(x+40,y+100);
+ctx.lineTo(x+50,y+100);
+ctx.lineTo(x+50,y);
+ctx.lineTo(x+40,y);
+ctx.lineTo(x+40,y+45);
+ctx.lineTo(x+10,y+45);
+ctx.lineTo(x+10,y);
+ctx.lineTo(x,y);
+ctx.closePath();
+ctx.fillStyle = "rgb(100,255,100)";
+ctx.fill();
+
+// arcs, bezier and quadratic curves!
+x = 70;
+ctx.beginPath();
+ctx.strokeStyle = "#FF0000";
+ctx.arc(x+25, y+70, 30, 0, -Math.PI*7/4, true);
+ctx.arc(x+25, y+70, 22, -Math.PI*7/4, 0, false);
+ctx.fillStyle = "rgb(255,100,100)";
+ctx.fill();
+ctx.fillRect(x, y+65, 55, 10);
 </script>
 </body>
 </html>
