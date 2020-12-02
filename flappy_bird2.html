@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flappy Bird 2</title>
+</head>
+<body>
+<canvas id="myCanvas" width="480" height="320" style="background-color:#eee;display:block;margin:0 auto"></canvas>
+
+<!-- Flappy Bird https://www.youtube.com/watch?v=fQoJZuBwrkU&t=46s -->
+
+<script>
+var canvas = document.getElementById("myCanvas");
+var ctx = canvas.getContext("2d");
+
+function drawBird(x,y)
+{
+    ctx.beginPath();
+    ctx.moveTo(x,y);
+    ctx.lineTo(x+20,y);
+    ctx.lineTo(x+20,y+20);
+    ctx.lineTo(x,y+20);
+    ctx.closePath();
+    ctx.fillStyle = "rgb(255, 102, 102)";
+    ctx.fill();
+}
+
+function drawPipe(x,top_y,bottom_y)
+{
+    const pipe_width = 50;
+    ctx.fillStyle = "rgb(41, 163, 41)";
+    ctx.beginPath();
+    ctx.moveTo(x,0);
+    ctx.lineTo(x,top_y);
+    ctx.lineTo(x+pipe_width,top_y);
+    ctx.lineTo(x+pipe_width,0);
+    ctx.closePath();
+    ctx.fill();
+    ctx.beginPath();
+    ctx.moveTo(x,bottom_y);
+    ctx.lineTo(x,canvas.height);
+    ctx.lineTo(x+pipe_width,canvas.height);
+    ctx.lineTo(x+pipe_width,bottom_y);
+    ctx.closePath();
+    ctx.fill();
+}
+
+document.addEventListener("keydown", keyDownHandler);
+
+var bird_x = 50;
+var bird_y = canvas.height/2;
+var bird_dy = -0.5;
+const gravity = 0.05;
+
+// image from https://ellisonleao.github.io/clumsy-bird/
+var background_img = new Image();
+background_img.src = "flappy_bird.png";
+
+function keyDownHandler(e) {
+    if (e.key == " ") {
+        flap();
+    }
+}
+
+function flap() {
+    bird_dy -= 3;
+}
+
+function draw() {
+    ctx.drawImage(background_img, 0, 0, canvas.width, canvas.height);
+    drawBird(bird_x,bird_y);
+    drawPipe(200,100,190);
+}
+
+function mainLoop() {
+    bird_dy = bird_dy + gravity;
+    bird_y = bird_y + bird_dy;
+    if (bird_y < 0) {
+        bird_y = 0;
+        bird_dy = 0;
+    }
+    else if (bird_y >= canvas.height - 20) {
+        bird_y = canvas.height - 20;
+        bird_dy = 0;
+    }
+    draw();
+}
+
+setInterval(mainLoop, 10);
+</script>
+
+</body>
+</html>
