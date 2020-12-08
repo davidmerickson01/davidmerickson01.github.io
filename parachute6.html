@@ -127,13 +127,13 @@ function keyDownHandler(e) {
     else if (e.keyCode == '37') {
         if (nudge_limit > 0) {
             parachute_x = parachute_x - 3;
-            nudge_limit--;
+            nudge_limit = nudge_limit - 1;
         }
     }
     else if (e.keyCode == '39') {
         if (nudge_limit > 0) {
             parachute_x = parachute_x + 3;
-            nudge_limit--;
+            nudge_limit = nudge_limit -1;
         }
     }
 }
@@ -175,6 +175,7 @@ function mainLoop() {
     case 0:
         /* abs(wind) <= 0.5 */
         wind = Math.random() - 0.5;
+        nudge_limit = 10;
         platform_width = Math.random() * 60 + 10;
         platform_x = Math.random() * (canvas.width-platform_width);
         drop = false;
