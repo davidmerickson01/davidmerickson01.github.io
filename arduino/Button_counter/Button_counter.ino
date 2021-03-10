@@ -1,4 +1,5 @@
 /*
+  Button_counter - keep track of how many times the button is pushed.
   Based on Button, http://www.arduino.cc/en/Tutorial/Button
 */
 
@@ -21,9 +22,9 @@ void flash_n_times(int n)
 {
   while (n > 0) {
     digitalWrite(ledPin, HIGH);
-    delay(100);
+    delay(200);
     digitalWrite(ledPin, LOW);
-    delay(100);
+    delay(200);
     n = n -1;
   }
 }
@@ -37,6 +38,8 @@ void loop() {
     }
     else {
       counter = counter + 1;
+      /* limit to 4, then go back to 1 */
+      if (counter > 4) counter = 1;
       flash_n_times(counter);
     }
   }

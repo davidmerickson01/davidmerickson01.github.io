@@ -1,4 +1,5 @@
 /*
+  Button_count_input - count how many times the button is pushed, then flash back that number.
   Based on Button, http://www.arduino.cc/en/Tutorial/Button
 */
 
@@ -47,12 +48,7 @@ void loop() {
     unsigned long dur = millis() - press_time;
     if (reading == LOW && press_time > 0 && dur > 1000) {
       Serial.print("flash ");
-      Serial.print(counter);
-      Serial.print(",");
-      Serial.print(dur);
-      Serial.print(",");
-      Serial.print(press_time);
-      Serial.println("");
+      Serial.println(counter);
       press_time = 0;
       flash_n_times(counter);
       counter = 0;
