@@ -13,13 +13,11 @@
 * Click the Windows button in the lower left and type "IDLE (Python 3.9...)".
 * It will launch a program called "IDLE Shell" which prints text like this:
 
-    
-    Python 3.9.7 (tags/v3.9.7:1016ef3, Aug 30 2021, 20:19:38) [MSC v.1929 64 bit (AMD64)] on win32
-    Type "help", "copyright", "credits" or "license()" for more information.
-    >>> 
-    
-    
-Now you are ready to program in Python!
+        Python 3.9.7 (tags/v3.9.7:1016ef3, Aug 30 2021, 20:19:38) [MSC v.1929 64 bit (AMD64)] on win32
+        Type "help", "copyright", "credits" or "license()" for more information.
+        \>\>\> 
+
+* Now you are ready to program in Python!
 
 # Your First Program
 
