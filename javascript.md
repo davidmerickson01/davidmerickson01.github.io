@@ -9,7 +9,7 @@
     * <https://www.w3schools.com/js/default.asp>
     * <https://developer.mozilla.org/en-US/docs/Web/JavaScript>
 
-## Getting Started: Writing your own program<
+## Getting Started: Writing your own programs
 * Click on some page below. If you're just starting, pick one of the simple "Hello World" pages.
 * Right click on page background (not the gray "canvas") and select "Save As…". Then open the file in your text editor.
 * Or, right click, "View page source", then copy-and-paste the HTML from the browser into a new file in your text editor.
