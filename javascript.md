@@ -1,4 +1,4 @@
-# JavaScript programs
+# JavaScript programming
 
 ## Getting Started: Tools
 
@@ -8,10 +8,6 @@
 * Online tutorials and references
     * <https://www.w3schools.com/js/default.asp>
     * <https://developer.mozilla.org/en-US/docs/Web/JavaScript>
-* Our starting points
-    * Google search "html getting started": Look for "Getting started with HTML - Learn web development | MDN"
-    * Google search "w3schools javascript tutorial": Look for "JavaScript Tutorial - W3Schools"
-    * Google search "javascript 2d canvas tutorial": Look for "Canvas tutorial - Web APIs | MDN"
 
 ## Getting Started: Writing your own program<
 * Click on some page below. If you're just starting, pick one of the simple "Hello World" pages.
@@ -30,21 +26,21 @@
 * [JavaScript canvas, move image](hello_world6) 
 
 ## Parachute
-* <parachute1> draw plane and parachute
-* <parachute2> fly and drop
-* <parachute3> add screens
-* <parachute4> add win/lose
-* <parachute5> add nudge
-* <parachute6> add bomb and explosion
+* [draw plane and parachute](parachute1)
+* [fly and drop](parachute2)
+* [add screens](parachute3)
+* [add win/lose](parachute4)
+* [add nudge](parachute5)
+* [add bomb and explosion](parachute6)
 
 ## Flappy Bird
-* <flappy_bird1>draw bird, pipe and background
-* <flappy_bird2>add flap and gravity (press space bar)
-* <flappy_bird3>add array of pipes
-* <flappy_bird4>create, move and destroy pipes
+* [draw bird, pipe and background](flappy_bird1)
+* [add flap and gravity (press space bar)](flappy_bird2)
+* [add array of pipes](flappy_bird3)
+* [create, move and destroy pipes](flappy_bird4)
 
 ## Asteroids
-* <asteroids1>rotate a block
-* <asteroids2>add bullets
-* <asteroids3>add asteriods and collision detection
-* <asteroids4>add touchscreen and mouse handlers
+* [rotate a block](asteroids1)
+* [add bullets](asteroids2)
+* [add asteriods and collision detection](asteroids3)
+* [add touchscreen and mouse handlers](asteroids4)
