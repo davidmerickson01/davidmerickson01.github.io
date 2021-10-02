@@ -3,7 +3,7 @@
 * Go to <https://www.python.org>
 * Click the "Downloads" menu item
 * If you run Windows, click "Download Python 3.9.7". If you run Mac or Chromebook, 
-* After it downloads, run the ".exe" file
+* After it downloads, run the ".exe" file, usually by clicking on the download button at the bottom of the browser
 
 *IMPORTANT: click the "Add Python 3.9 to PATH" checkbox! You need this to run python from a command prompt (which I will teach you about.)*
 
@@ -13,15 +13,17 @@
 * Click the Windows button in the lower left and type "IDLE (Python 3.9...)".
 * It will launch a program called "IDLE Shell" which prints text like this:
 
+    
     Python 3.9.7 (tags/v3.9.7:1016ef3, Aug 30 2021, 20:19:38) [MSC v.1929 64 bit (AMD64)] on win32
     Type "help", "copyright", "credits" or "license()" for more information.
     >>> 
-
+    
+    
 Now you are ready to program in Python!
 
 # Your First Program
 
-Type this after the ">>>" prompt and press Enter:
+Type this after the "\>\>\>" prompt and press Enter:
 
     
     print("Hello World!")
