@@ -10,12 +10,17 @@ Or use mouse or touchpad to move and fire.
 
 <script>
 var canvas = document.getElementById("myCanvas");
-const center_x = canvas.width/2;
-const center_y = canvas.height/2;
+
+canvas.width  = window.innerWidth;
+canvas.height = window.innerHeight;
+
+var center_x = canvas.width/2;
+var center_y = canvas.height/2;
 var ctx = canvas.getContext("2d");
 var angle = 0; // degrees, 0 == pointing right
 const block_width = 30;
 const block_height = 15;
+
 
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
 var bullets = Array();
@@ -27,6 +32,7 @@ document.addEventListener("touchstart", touchHandler);
 document.addEventListener("touchmove", touchHandler);
 document.addEventListener("click", clickHandler);
 document.addEventListener("mousemove", mouseHandler);
+window.addEventListener("resize", resizeHandler);
 
 var leftDown = false;
 var rightDown = false;
@@ -55,6 +61,14 @@ function keyUpHandler(e) {
     else if (e.key == " ") {
         spaceDown = false;
     }
+}
+
+function resizeHandler(e) {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    center_x = canvas.width/2;
+    center_y = canvas.height/2;
+    draw();
 }
 
 function fireBullet() {
