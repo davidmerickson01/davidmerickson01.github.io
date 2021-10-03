@@ -3,7 +3,7 @@
 * Go to <https://www.python.org>
 * Click the "Downloads" menu item
 * If you run Windows, click "Download Python 3.9.7".
-    * If you run Mac, there are special instructions. 
+    * If you run Mac, there are instructions after "Looking for Python with a different OS?".
     * If you use Chromebook, Python should already be included. Press Ctrl+Alt+T for a terminal, then type "python3".
 * After it downloads, run the ".exe" file, usually by clicking on the download button at the bottom of the browser
 
