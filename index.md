@@ -10,6 +10,8 @@ This website contains resources and programming examples that will be helpful.
 
 [Arduino programming](arduino)
 
+[JavaScript programming](javascript)
+
 ## 2019-2020
 
-[JavaScript programming](javascript)
+Python and Pygame
