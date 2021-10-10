@@ -6,6 +6,9 @@ This website contains resources and programming examples that will be helpful.
 
 [Installing Python](installing_python)
 
+* [Hello World](python/hello_world.py)
+* [Final Exam Prioritizer](python/final_exam_prioritizer.py)
+* [Football](python/football.py)
 
 ## 2020-2021
 
@@ -17,5 +20,5 @@ This website contains resources and programming examples that will be helpful.
 
 Python and Pygame
 
-Simple Mario
-![simple mario screenshot](python/simple_mario_screenshot.png)
+![simple mario screenshot](python/simple_mario_thumbnail.png)
+<https://github.com/davidmerickson01/davidmerickson01.github.io/tree/master/python/simple_mario>
