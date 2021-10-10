@@ -7,8 +7,8 @@ This website contains resources and programming examples that will be helpful.
 [Installing Python](installing_python)
 
 * Hello World [download](python/hello_world.py) [github](https://github.com/davidmerickson01/davidmerickson01.github.io/tree/master/python/hello_world.py)
-* Final Exam Prioritizer [download](python/final_exam_prioritizer.py)
-* Football [download](python/football.py)
+* Final Exam Prioritizer [download](python/final_exam_prioritizer.py) [github](https://github.com/davidmerickson01/davidmerickson01.github.io/tree/master/python/final_exam_prioritizer.py)
+* Football [download](python/football.py) [github](https://github.com/davidmerickson01/davidmerickson01.github.io/tree/master/python/football.py)
 
 ## 2020-2021
 
@@ -21,5 +21,6 @@ This website contains resources and programming examples that will be helpful.
 Python and Pygame
 
 ![simple mario screenshot](python/simple_mario_thumbnail.png)
+
 Simple Mario source code [download](https://download-directory.github.io/?url=https://github.com/davidmerickson01/davidmerickson01.github.io/tree/master/python/simple_mario
 ) [github](https://github.com/davidmerickson01/davidmerickson01.github.io/tree/master/python/simple_mario)
