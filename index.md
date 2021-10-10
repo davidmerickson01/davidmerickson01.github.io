@@ -6,6 +6,7 @@ This website contains resources and programming examples that will be helpful.
 
 [Installing Python](installing_python)
 
+
 ## 2020-2021
 
 [Arduino programming](arduino)
@@ -15,3 +16,6 @@ This website contains resources and programming examples that will be helpful.
 ## 2019-2020
 
 Python and Pygame
+
+Simple Mario
+!(python/simple_mario_screenshot.png)
