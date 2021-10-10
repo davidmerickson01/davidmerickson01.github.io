@@ -18,4 +18,4 @@ This website contains resources and programming examples that will be helpful.
 Python and Pygame
 
 Simple Mario
-!(python/simple_mario_screenshot.png)
+![simple mario screenshot](python/simple_mario_screenshot.png)
