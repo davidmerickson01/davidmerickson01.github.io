@@ -20,6 +20,11 @@ This website contains resources and programming examples that will be helpful.
 
 Python and Pygame
 
+![simple pygame screenshot](python/simple_pygame_thumbnail.png)
+
+Simple Pygame source code [download](https://download-directory.github.io/?url=https://github.com/davidmerickson01/davidmerickson01.github.io/tree/master/python/simple_pygame
+) [github](https://github.com/davidmerickson01/davidmerickson01.github.io/tree/master/python/simple_pygame)
+
 ![simple mario screenshot](python/simple_mario_thumbnail.png)
 
 Simple Mario source code [download](https://download-directory.github.io/?url=https://github.com/davidmerickson01/davidmerickson01.github.io/tree/master/python/simple_mario
