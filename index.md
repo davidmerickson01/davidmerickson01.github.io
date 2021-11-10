@@ -10,6 +10,8 @@ This website contains resources and programming examples that will be helpful.
 * Final Exam Prioritizer [download](python/final_exam_prioritizer.py) [github](https://github.com/davidmerickson01/davidmerickson01.github.io/tree/master/python/final_exam_prioritizer.py)
 * Football [download](python/football.py) [github](https://github.com/davidmerickson01/davidmerickson01.github.io/tree/master/python/football.py)
 
+See below for Pygame examples
+
 ## 2020-2021
 
 [Arduino programming](arduino)
@@ -19,6 +21,8 @@ This website contains resources and programming examples that will be helpful.
 ## 2019-2020
 
 Python and Pygame
+
+After downloading a zip file, you need to extract (or unzip) by right-clicking on the file before running.
 
 ![simple pygame screenshot](python/simple_pygame_thumbnail.png)
 
