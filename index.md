@@ -2,6 +2,10 @@
 
 This website contains resources and programming examples that will be helpful.
 
+## 2022-2023
+
+[HTML programming](html)
+
 ## 2021-2022
 
 [Installing Python](installing_python)
