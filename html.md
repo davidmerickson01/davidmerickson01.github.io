@@ -17,5 +17,10 @@
 
 | Tag         | Description | Example     |
 | ----------- | ----------- | ----------- |
+| \<h1> | Heading 1 | \<h1>Title of my Awesome Paper\</h1> |
 | \<i> | Italics | This is \<i>italicized\</i> |
 | \<b> | Bold | This is \<b>bold\</b> |
+| \<p> | Paragraphi | First paragraph\<p>Second paragraphi |
+| \<br> | Bold | First line\<br>Second line |
+| \<a href=url> | Hyperlink | \<a href=https://www.youtube.com/watch?v=oHg5SJYRHA0>Click here for important notice\</a> |
+| \<img src=filename> | Image | \<img src=my_icon.jpg> |
