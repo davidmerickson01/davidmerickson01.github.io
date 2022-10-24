@@ -14,7 +14,8 @@
 * Browser - We'll use the debug features of <https://www.google.com/chrome>. Any browser will work though. Press "ctrl-shift-i" to bring up "Developer Tools".
 
 ## HTML Tags
-| Tag | Description | Example |
+
+| Tag         | Description | Example     |
 | ----------- | ----------- | ----------- |
 | \<i> | Italics | This is \<i>italicized\</i> |
 | \<b> | Bold | This is \<b>bold\</b> |
