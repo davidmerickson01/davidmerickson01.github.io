@@ -15,5 +15,6 @@
 
 ## HTML Tags
 | Tag | Description | Example |
+| ----------- | ----------- | ----------- |
 | \<i> | Italics | This is \<i>italicized\</i> |
 | \<b> | Bold | This is \<b>bold\</b> |
