@@ -24,3 +24,4 @@ In Chrome, click on the page, then right click, "View Source" and study the HTML
 * [HTML tables - basic](html/tables_basic) 
 * [HTML tables - attributes](html/tables_attributes) 
 * [HTML tables - CSS](html/tables_css) 
+* [HTML float layout](html/float_layout) 
