@@ -7,21 +7,39 @@
 * Click on References, then "HTML Tag Reference"
     * Find a tag on the left, read about it, then do "Try it Yourself"
 
-## Getting Started: Tools
-
-* Online editor is <https://www.w3schools.com/html/tryit.asp?filename=tryhtml_default>
-* Text editor - I use <https://notepad-plus-plus.org>. For our club, plain old Windows Notepad is fine. Visual Studio Code is popular. Don't use WordPad or Word.
-* Browser - We'll use the debug features of <https://www.google.com/chrome>. Any browser will work though.
-    * Right click, "View Source" is helpful.
-    * Ctrl-Shift-i to bring up "Developer Tools".
-
-## Pages
+## Sample Pages
 
 In Chrome, click on the page, then right click, "View Source" and study the HTML.
 
-* [HTML tags](html/henry_v) 
-* [HTML lists](html/lists) 
-* [HTML tables - basic](html/tables_basic) 
-* [HTML tables - attributes](html/tables_attributes) 
-* [HTML tables - CSS](html/tables_css) 
-* [HTML float layout](html/float_layout) 
+### Club 1
+w3schools
+* [Editors](https://www.w3schools.com/html/html_editors.asp)
+* [Tags and attributes](https://www.w3schools.com/html/html_basic.asp)
+
+HTML pages
+* [HTML tags - Henry V](html/henry_v) 
+
+### Club 2
+w3schools
+* [Lists](https://www.w3schools.com/html/html_lists.asp)
+* [Tables](https://www.w3schools.com/html/html_tables.asp)
+* [CSS](https://www.w3schools.com/html/html_css.asp)
+
+HTML pages
+* [Lists](html/lists) 
+* [Tables](html/tables_basic) 
+* [Tables with old HTML4 attributes](html/tables_attributes) 
+* [Tables with CSS](html/tables_css) 
+
+### Club 3
+w3schools
+* [Layout](https://www.w3schools.com/html/html_layout.asp)
+* [Semantic elements](https://www.w3schools.com/html/html5_semantic_elements.asp)
+* [CSS box model](https://www.w3schools.com/css/css_boxmodel.asp)
+* [CSS float](https://www.w3schools.com/css/css_float.asp)
+
+HTML pages
+* [Semantic elements, no style](html/layout1) 
+* [Add style](html/layout2) 
+* [More elements](html/layout3) 
+* [Navigation bar](html/layout4) 
