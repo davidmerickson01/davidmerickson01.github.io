@@ -14,7 +14,10 @@ This website contains resources and programming examples that will be helpful.
 * Final Exam Prioritizer [download](python/final_exam_prioritizer.py) [github](https://github.com/davidmerickson01/davidmerickson01.github.io/tree/master/python/final_exam_prioritizer.py)
 * Football [download](python/football.py) [github](https://github.com/davidmerickson01/davidmerickson01.github.io/tree/master/python/football.py)
 
-See below for Pygame examples
+![street fighter screenshot](python/street_fighter_thumbnail.png)
+
+Street Fighter source code [download](https://download-directory.github.io/?url=https://github.com/davidmerickson01/davidmerickson01.github.io/tree/master/python/street_fighter
+) [github](https://github.com/davidmerickson01/davidmerickson01.github.io/tree/master/python/street_fighter)
 
 ## 2020-2021
 
