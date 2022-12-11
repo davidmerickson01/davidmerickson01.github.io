@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>JavaScript</title>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+  background-color: #666;
+  padding: 20px;
+  text-align: center;
+  font-size: 25px;
+  color: white;
+}
+
+section {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    height: 300px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+}
+
+input, button {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+}
+
+footer {
+    background-color: #777;
+    padding: 10px;
+    text-align: center;
+    color: white;
+}
+</style>
+
+<script>
+function change_weight(num)
+{
+    w = parseInt(document.getElementById("current_weight").innerHTML);
+    w = w + num;
+    if (w < 0) {
+        w = 0;
+    }
+    if (num < 0) {
+        text = "You lost " + num + " pounds";
+    }
+    else if (num > 0) {
+        text = "You gained " + num + " pounds";
+    }
+    else {
+        text = "You stayed the same";
+    }
+    if (w == 0) {
+        text = text + " and died"
+    }
+    else if (w > 1000) {
+        text = text + " and died"
+    }
+    document.getElementById("result").innerHTML = text;
+    document.getElementById("current_weight").innerHTML = w;
+}
+</script>
+</head>
+<body>
+
+<header>
+<h2>Diet Plan</h2>
+</header>
+
+<section>
+<p>
+You're on a diet. Let's see how it goes!
+<p>
+Actions
+<br>
+<button onClick="change_weight(-1)">Eat broccoli</button>
+<button onClick="change_weight(-10)">Run marathon</button>
+<button onClick="change_weight(15)">Chow down 24oz steak</button>
+<br>
+<button onClick="change_weight(-20)">Drink only water for 7 days</button>
+<button onClick="change_weight(6)">Flamin' Hot Cheetos for breakfast</button>
+<button onClick="change_weight(-1)">Walk to McDonalds and eat one fry</button>
+<br>
+<button onClick="change_weight(4)">Drive to McDonalds and eat 7 Big Macs</button>
+<p>
+What happened? <span id="result"></span>
+<p>
+You now weigh <span id="current_weight">120</span> pounds.
+</section>
+
+<footer>
+  <p><a href=http://www.veritaspress.com><img width=150px src=https://www.veritaspress.com/images/logos/logo.svg></a></p>
+</footer>
+
+</body>
+</html>

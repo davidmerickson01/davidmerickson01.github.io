@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>JavaScript</title>
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+    background-color: #666;
+    padding: 20px;
+    text-align: center;
+    font-size: 25px;
+    color: white;
+}
+
+section {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    height: 350px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+}
+
+#wordpanel {
+    letter-spacing: 5px;
+}
+    
+input, button {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+}
+
+footer {
+    background-color: #777;
+    padding: 10px;
+    text-align: center;
+    color: white;
+}
+</style>
+
+<script>
+// TODO: we could use a much much bigger dictionary.
+let possible_words = ["christmas","kitty","couch","dog","chocolate",
+             "butterfly","algebra","veritas","sequioa","qatar"];
+let word; // the one we're trying to guess now
+let revealed_word; // our current progress, replace _ with right letter
+let wrong_letters;
+let done;
+
+function start_game()
+{
+    let num = Math.floor(Math.random()*possible_words.length);
+   
+    word = possible_words[num];
+    console.log("num",num,"word = " + word);
+    
+    revealed_word = "";
+    for (i=0;i<word.length;i++) {
+        revealed_word += "_";
+    }
+    document.getElementById("input1").value = "";
+    document.getElementById("wordpanel").innerHTML = revealed_word;
+    document.getElementById("wrong_letters_panel").innerHTML = "";
+    document.getElementById("result1").innerHTML = "";
+    wrong_letters = "";
+    done = false;
+}
+
+function guess()
+{
+    if (done) return;
+
+    // get the letter (but only one letter, and make it lower case
+    let letter = document.getElementById("input1").value[0].toLowerCase();
+    console.log("letter = " + letter);
+    
+    // check for a match
+    let match = false;
+    for (i=0;i<word.length;i++) {
+        if (word[i] == letter) {
+            // JavaScript strings are immutable (unchangeable) so...
+            // we have to concatenate all the letters before, the right letter, then all the letters after
+            revealed_word = revealed_word.substring(0,i) + letter + revealed_word.substring(i+1);
+            match = true;
+        }
+    }
+    
+    if (match == false) {
+        // TODO: don't add if already in wrong_letters string
+        wrong_letters = wrong_letters + letter;
+        document.getElementById("wrong_letters_panel").innerHTML = wrong_letters;
+        // TODO: hang the man!
+    }
+
+    document.getElementById("wordpanel").innerHTML = revealed_word;
+    if (revealed_word == word) {
+        document.getElementById("result1").innerHTML = "You win!";
+        done = true;
+    }
+    document.getElementById("input1").value = "";
+}
+</script>
+</head>
+<body>
+
+<header>
+<h2>Hangman</h2>
+</header>
+
+<section>
+<p>
+<button onClick="start_game()">Start Game!</button>
+<p>
+<div id="wordpanel"></div>
+<p>
+Guess: <input size=1 id="input1" type="text" onchange="guess()"> <button id="button1" onClick="guess()">Check</button>
+<p>
+Wrong letters: <span id="wrong_letters_panel"></span>
+<p>
+<div id="result1"></div>
+</section>
+
+<script>
+start_game();
+</script>
+
+
+<footer>
+  <p><a href=http://www.veritaspress.com><img width=150px src=https://www.veritaspress.com/images/logos/logo.svg></a></p>
+</footer>
+
+</body>
+</html>

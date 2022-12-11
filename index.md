@@ -6,6 +6,8 @@ This website contains resources and programming examples that will be helpful.
 
 [HTML programming](html)
 
+[JavaScript programming](javascript)
+
 ## 2021-2022
 
 [Installing Python](installing_python)
@@ -23,7 +25,7 @@ Street Fighter source code [download](https://download-directory.github.io/?url=
 
 [Arduino programming](arduino)
 
-[JavaScript programming](javascript)
+[JavaScript canvas programming](javascript_canvas)
 
 ## 2019-2020
 

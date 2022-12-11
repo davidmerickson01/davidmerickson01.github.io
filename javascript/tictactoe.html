@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>JavaScript</title>
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+    background-color: #666;
+    padding: 20px;
+    text-align: center;
+    font-size: 25px;
+    color: white;
+}
+
+#board {
+    font-size: 50px;
+}
+
+td {
+    border: 1px solid;
+    width: 60px;
+    height: 60px;
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+section {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    height: 320px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+}
+
+input, button {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+}
+
+footer {
+    background-color: #777;
+    padding: 10px;
+    text-align: center;
+    color: white;
+}
+</style>
+
+<script>
+let current;
+let done;
+function start_game()
+{
+    let i;
+    for (i=0;i<9;i++) {
+        document.getElementById("td"+i).innerHTML = "";
+    }
+    current = "X";
+    document.getElementById("result1").innerHTML = "";
+    done = false;
+}
+
+function check(i0,i1,i2)
+{
+    if (document.getElementById("td"+i2).innerHTML == "") {
+        return false;
+    }
+    if (document.getElementById("td"+i0).innerHTML == document.getElementById("td"+i1).innerHTML &&
+        document.getElementById("td"+i1).innerHTML == document.getElementById("td"+i2).innerHTML) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+function pick(i)
+{
+    if (done) return;
+
+    // make play
+    document.getElementById("td"+i).innerHTML = current;
+    
+    // check all possible wins (brute force)
+    if (check(0,1,2) || check(3,4,5) || check(6,7,8) ||
+        check(0,3,6) || check(1,4,7) || check(2,5,8) ||
+        check(0,4,8) || check(2,4,6)) 
+    {
+        document.getElementById("result1").innerHTML = current + " wins!";
+        done = true;
+    }
+    else {
+        // toggle
+        if (current == "X") {
+            current = "O";
+        }
+        else {
+            current = "X";
+        }
+    }
+}
+</script>
+</head>
+<body>
+
+<header>
+<h2>Tic Tac Toe</h2>
+</header>
+
+<section>
+<p>
+<button onClick="start_game()">Start Game!</button>
+<p>
+<table id=board>
+<tr><td id="td0" onclick="pick(0)"><td id="td1" onclick="pick(1)"><td id="td2" onclick="pick(2)">
+<tr><td id="td3" onclick="pick(3)"><td id="td4" onclick="pick(4)"><td id="td5" onclick="pick(5)">
+<tr><td id="td6" onclick="pick(6)"><td id="td7" onclick="pick(7)"><td id="td8" onclick="pick(8)">
+</table>
+<p>
+<div id="result1"></div>
+</section>
+
+<script>
+start_game();
+</script>
+
+<footer>
+  <p><a href=http://www.veritaspress.com><img width=150px src=https://www.veritaspress.com/images/logos/logo.svg></a></p>
+</footer>
+
+</body>
+</html>

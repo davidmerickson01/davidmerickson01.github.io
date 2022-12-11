@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>JavaScript</title>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+  background-color: #666;
+  padding: 20px;
+  text-align: center;
+  font-size: 25px;
+  color: white;
+}
+
+section {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    height: 300px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+}
+
+input, button {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+}
+
+footer {
+    background-color: #777;
+    padding: 10px;
+    text-align: center;
+    color: white;
+}
+</style>
+
+<script>
+let actual_age = 51;
+let num_guesses = 0;
+function start_game()
+{
+    // Math.random() generates a number between 0.0 and 0.99
+    // multiply by 100 and drop decimal (aka floor) gives you 0 to 99
+    // add 1 for 1 to 100
+    actual_age = Math.floor(Math.random() * 100) + 1;
+    console.log("actual_age = " + actual_age);
+    num_guesses = 0;
+
+    // visibility allows you to control the flow of the game
+    document.getElementById("gamepanel").style.visibility = "visible";
+    document.getElementById("result1").innerHTML = "";
+    document.getElementById("input1").value = "";
+}
+function guess()
+{
+    let text;
+    let guess_age;
+    guess_age = document.getElementById("input1").value;
+    num_guesses++;
+    if (guess_age < actual_age) {
+        text = "Too young. " + num_guesses + " guess(es).";
+    }
+    else if (guess_age >actual_age) {
+        text = "Too old. " + num_guesses + " guess(es).";
+    }
+    else {
+        text = "You won in " + num_guesses + " guess(es)!";
+        document.getElementById("gamepanel").style.visibility = "hidden";
+    }
+    document.getElementById("result1").innerHTML = text;
+}
+</script>
+</head>
+<body>
+
+<header>
+<h2>Guess My Age</h2>
+</header>
+
+<section>
+<p>
+What is my age? Guess a number between 1 and 100.
+<p>
+<button onClick="start_game()">Start Game!</button>
+<p>
+<div id=gamepanel style="visibility:hidden;">
+Guess: <input id="input1" type="text" onchange="guess()"> <button id="button1" onClick="guess()">Check</button>
+<p>
+</div>
+<div id="result1">
+</div>
+</section>
+
+<footer>
+  <p><a href=http://www.veritaspress.com><img width=150px src=https://www.veritaspress.com/images/logos/logo.svg></a></p>
+</footer>
+
+</body>
+</html>

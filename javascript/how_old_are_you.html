@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>JavaScript</title>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+  background-color: #666;
+  padding: 20px;
+  text-align: center;
+  font-size: 25px;
+  color: white;
+}
+
+section {
+  height: 300px;
+}
+
+footer {
+  background-color: #777;
+  padding: 10px;
+  text-align: center;
+  color: white;
+}
+
+</style>
+<script>
+function click_button()
+{
+    age = document.getElementById("input1").value;
+    if (age < 3) {
+        result = "You are a baby";
+    }
+    else if (age < 13) {
+        result = "You are a child";
+    }
+    else if (age < 20) {
+        result = "You are a teenager";
+    }
+    else if (age < 30) {
+        result = "You are a twenty-something";
+    }
+    else if (age < 45) {
+        result = "You are middle aged";
+    }
+    else if (age == 51) {
+        result = "Wow, you are the perfect age!";
+    }
+    else if (age < 65) {
+        result = "You are over the hill";
+    }
+    else if (age < 90) {
+        result = "Wowzers, you are really old";
+    }
+    else if (age > 108) {
+        result = "Are you lying to me?";
+    }
+    else {
+        result = "I can't believe you are still alive";
+    }
+    document.getElementById("response_panel").innerHTML = result;
+}
+</script>
+</head>
+<body>
+
+<header>
+  <h2>JavaScript</h2>
+</header>
+
+<p>
+
+<section>
+How old are you?
+<p>
+<input id="input1" type="text" onChange="click_button()"> <button id="button1" onClick="click_button()">Submit</button>
+<p>
+<div id=response_panel></div>
+</section>
+
+<footer>
+  <p><a href=http://www.veritaspress.com><img width=150px src=https://www.veritaspress.com/images/logos/logo.svg></a></p>
+</footer>
+
+</body>
+</html>
