@@ -63,6 +63,7 @@ function guess()
     let text;
     let guess_age;
     guess_age = document.getElementById("input1").value;
+    console.log("guess",guess_age)
     num_guesses++;
     if (guess_age < actual_age) {
         text = "Too young. " + num_guesses + " guess(es).";
@@ -91,7 +92,8 @@ What is my age? Guess a number between 1 and 100.
 <button onClick="start_game()">Start Game!</button>
 <p>
 <div id=gamepanel style="visibility:hidden;">
-Guess: <input id="input1" type="text" onchange="guess()"> <button id="button1" onClick="guess()">Check</button>
+<!-- if you can't press enter, clicking the button removes focus from <input> which triggers onchange -->
+Guess: <input id="input1" type="text" onchange="guess()"> <button id="button1">Check</button>
 <p>
 </div>
 <div id="result1">

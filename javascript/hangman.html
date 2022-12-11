@@ -120,7 +120,8 @@ function guess()
 <p>
 <div id="wordpanel"></div>
 <p>
-Guess: <input size=1 id="input1" type="text" onchange="guess()"> <button id="button1" onClick="guess()">Check</button>
+<!-- if you can't press enter, clicking the button removes focus from <input> which triggers onchange -->
+Guess: <input size=1 id="input1" type="text" onchange="guess()"> <button id="button1">Check</button>
 <p>
 Wrong letters: <span id="wrong_letters_panel"></span>
 <p>
