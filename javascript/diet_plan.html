@@ -50,7 +50,7 @@ function change_weight(num)
         w = 0;
     }
     if (num < 0) {
-        text = "You lost " + num + " pounds";
+        text = "You lost " + (-1*num) + " pounds";
     }
     else if (num > 0) {
         text = "You gained " + num + " pounds";
@@ -61,7 +61,7 @@ function change_weight(num)
     if (w == 0) {
         text = text + " and died"
     }
-    else if (w > 1000) {
+    else if (w >= 1000) {
         text = text + " and died"
     }
     document.getElementById("result").innerHTML = text;
@@ -82,14 +82,16 @@ You're on a diet. Let's see how it goes!
 Actions
 <br>
 <button onClick="change_weight(-1)">Eat broccoli</button>
-<button onClick="change_weight(-10)">Run marathon</button>
-<button onClick="change_weight(15)">Chow down 24oz steak</button>
+<button onClick="change_weight(-10)">Run Death Valley marathon</button>
+<button onClick="change_weight(5)">Chow down 24oz steak</button>
 <br>
 <button onClick="change_weight(-20)">Drink only water for 7 days</button>
-<button onClick="change_weight(6)">Flamin' Hot Cheetos for breakfast</button>
+<button onClick="change_weight(2)">Flamin' Hot Cheetos for breakfast</button>
 <button onClick="change_weight(-1)">Walk to McDonalds and eat one fry</button>
 <br>
 <button onClick="change_weight(4)">Drive to McDonalds and eat 7 Big Macs</button>
+<button onClick="change_weight(-2)">Do 100 jumping jacks</button>
+<button onClick="change_weight(15)">Eat 10 Cinnabons</button>
 <p>
 What happened? <span id="result"></span>
 <p>
