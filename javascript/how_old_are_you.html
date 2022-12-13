@@ -35,7 +35,13 @@ footer {
 function click_button()
 {
     age = document.getElementById("input1").value;
-    if (age < 3) {
+    if (age < 0) {
+        result = "You have not been born yet";
+    }
+    else if (age == 0) {
+        result = "You are being born right now";
+    }
+    else if (age < 3) {
         result = "You are a baby";
     }
     else if (age < 13) {
