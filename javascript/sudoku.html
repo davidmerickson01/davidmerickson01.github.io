@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>JavaScript</title>
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+    background-color: #666;
+    padding: 5px;
+    text-align: center;
+    font-size: 20px;
+    color: white;
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+section {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+}
+
+input, button {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+}
+
+input {
+    width:30px;
+}
+</style>
+
+<script>
+var solution; // global
+
+// return true if any number in the one-dim array is duplicate, ignoring zeroes
+function dup(a)
+{
+    let sorted_a = a.slice().sort();
+    let i;
+    for (i=1;i<sorted_a.length;i++) {
+        if (sorted_a[i] != 0 && sorted_a[i] == sorted_a[i-1]) return true;
+    }
+    // console.log(a);
+    return false;
+}
+
+// check if sudoku puzzle is valid, ignoring zeroes
+function check_solution(sol)
+{
+    let i,j;
+    // no dup in any row
+    for (i=0;i<9;i++) {
+        //console.log("row",i,sol[i]);
+        if (dup(sol[i])) return false;
+    }
+    // no dup in any column
+    for (i=0;i<9;i++) {
+        col = [0,0,0,0,0,0,0,0,0];
+        for (j=0;j<9;j++) {
+            col[j] = sol[j][i];
+        }
+        //console.log("col",i,col);
+        if (dup(col)) return false;
+    }
+    // no dup in any square
+    let x = 0;
+    let y = 0;
+    for (i=0;i<9;i++) {
+        square = [0,0,0,0,0,0,0,0,0];
+        for (j=0;j<9;j++) {
+            //console.log("square",i,j,"from",x,y);
+            square[j] = sol[y][x];
+            if (++x % 3 == 0) {
+                x -= 3;
+                y++;
+            }
+        }
+        //console.log("square",i,square);
+        if (dup(square)) return false;
+        x += 3;
+        if (x == 9) {
+            x = 0;
+        }
+        else {
+            y -= 3;
+        }
+    }
+    // we're good
+    return true;
+}
+
+// copy two dim array
+function copy_array(sol)
+{
+    let s = sol.slice();
+    for (i=0;i<s.length;i++) s[i] = sol[i].slice();
+    return s;
+}
+
+// recursive algo to generate sudoku puzzle
+// relies on stack to keep possible values for each square
+// runs 81 levels deep
+function generate_step(sol,i)
+{
+    let possible = [1,2,3,4,5,6,7,8,9]; // local array of possible numbers on the stack
+    while (possible.length > 0) {
+        let r = Math.floor(Math.random() * possible.length);
+        //console.log("generate_step",i,"with",possible[r],"of",possible);
+        sol[parseInt(i/9)][i%9] = possible[r];
+        if (check_solution(sol)) {
+            //console.log(i,sol);
+            if (i == 80) return sol; // we're done */
+            // try next step
+            // you have to copy the array at each step so that we can back up
+            result = generate_step(copy_array(sol),i+1);
+            if (result) {
+                return result;
+            }
+        }
+        // slice out number that didn't work
+        possible = possible.slice(0,r).concat(possible.slice(r+1));
+    }
+    // have to back up and try again
+    // console.log("no solution",i,sol);
+    return null;
+}
+
+function generate()
+{
+    let sol = [
+        [0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0]];
+    solution = generate_step(sol,0);
+    console.log(solution)
+}
+
+function clear_grid()
+{
+    let i, j;
+    for (i=0;i<9;i++) {
+        for (j=0;j<9;j++) {
+            element = document.getElementById("i"+i+j);
+            element.value = "";
+            element.style.background = "";
+        }
+    }
+}
+
+function start_game()
+{
+    clear_grid();
+    generate();
+    give_hint(9)
+}
+
+function check_game()
+{
+    let i, j;
+    for (i=0;i<9;i++) {
+        for (j=0;j<9;j++) {
+            element = document.getElementById("i"+i+j);
+            if (element.value != "" && element.value != solution[i][j]) {
+                element.style.background = "red";
+            }
+            else {
+                element.style.background = "";
+            }
+        }
+    }
+}
+
+function input_changed(input)
+{
+    // validate input to be only a single digit
+    if (input.value.length > 1) input.value = input.value[0];
+    let i = parseInt(input.value);
+    console.log(input.id,input.value,i)
+    if (isNaN(i) || i == 0) input.value = "";
+}
+
+function give_hint(num)
+{
+    let i,j,empty = 0;
+    // if there's no space avail, we have an infinite loop,
+    // and the browser really doesn't like that, so avoid the situation
+    for (i=0;i<9;i++) {
+        for (j=0;j<9;j++) {
+            element = document.getElementById("i"+i+j);
+            if (element.value == "") empty++;
+        }
+    }
+    if (num > empty) num = empty;
+    while (num) {
+        // TODO: just random is not right. there is some algo to be written.
+        i = Math.floor(Math.random() * 9);
+        j = Math.floor(Math.random() * 9);
+        element = document.getElementById("i"+i+j);
+        if (element.value == "") {
+            element.value = solution[i][j];
+            num--;
+        }
+    }
+}
+
+function show_puzzle()
+{
+    let i, j;
+    for (i=0;i<9;i++) {
+        for (j=0;j<9;j++) {
+            element = document.getElementById("i"+i+j);
+            element.value = solution[i][j];
+            element.style.background = "";
+        }
+    }
+}
+</script>
+</head>
+<body>
+
+<header>
+<h2>Sudoku!</h2>
+</header>
+
+<section>
+<p>
+<button onclick="start_game()">Restart</button>
+<button onclick="check_game()">Check</button>
+<button onclick="give_hint(1)">Hint</button>
+<button onclick="show_puzzle()">Show</button>
+</p><p>
+</p><table id="board">
+<tbody>
+<tr>
+<td><input id="i00" oninput="input_changed(this)"></td>
+<td><input id="i01" oninput="input_changed(this)"></td>
+<td><input id="i02" oninput="input_changed(this)"></td>
+<td><input id="i03" oninput="input_changed(this)"></td>
+<td><input id="i04" oninput="input_changed(this)"></td>
+<td><input id="i05" oninput="input_changed(this)"></td>
+<td><input id="i06" oninput="input_changed(this)"></td>
+<td><input id="i07" oninput="input_changed(this)"></td>
+<td><input id="i08" oninput="input_changed(this)"></td>
+</tr>
+<tr>
+<td><input id="i11" oninput="input_changed(this)"></td>
+<td><input id="i10" oninput="input_changed(this)"></td>
+<td><input id="i12" oninput="input_changed(this)"></td>
+<td><input id="i13" oninput="input_changed(this)"></td>
+<td><input id="i14" oninput="input_changed(this)"></td>
+<td><input id="i15" oninput="input_changed(this)"></td>
+<td><input id="i16" oninput="input_changed(this)"></td>
+<td><input id="i17" oninput="input_changed(this)"></td>
+<td><input id="i18" oninput="input_changed(this)"></td>
+</tr>
+<tr>
+<td><input id="i20" oninput="input_changed(this)"></td>
+<td><input id="i21" oninput="input_changed(this)"></td>
+<td><input id="i22" oninput="input_changed(this)"></td>
+<td><input id="i23" oninput="input_changed(this)"></td>
+<td><input id="i24" oninput="input_changed(this)"></td>
+<td><input id="i25" oninput="input_changed(this)"></td>
+<td><input id="i26" oninput="input_changed(this)"></td>
+<td><input id="i27" oninput="input_changed(this)"></td>
+<td><input id="i28" oninput="input_changed(this)"></td>
+</tr>
+<tr>
+<td><input id="i30" oninput="input_changed(this)"></td>
+<td><input id="i31" oninput="input_changed(this)"></td>
+<td><input id="i32" oninput="input_changed(this)"></td>
+<td><input id="i33" oninput="input_changed(this)"></td>
+<td><input id="i34" oninput="input_changed(this)"></td>
+<td><input id="i35" oninput="input_changed(this)"></td>
+<td><input id="i36" oninput="input_changed(this)"></td>
+<td><input id="i37" oninput="input_changed(this)"></td>
+<td><input id="i38" oninput="input_changed(this)"></td>
+</tr>
+<tr>
+<td><input id="i40" oninput="input_changed(this)"></td>
+<td><input id="i41" oninput="input_changed(this)"></td>
+<td><input id="i42" oninput="input_changed(this)"></td>
+<td><input id="i43" oninput="input_changed(this)"></td>
+<td><input id="i44" oninput="input_changed(this)"></td>
+<td><input id="i45" oninput="input_changed(this)"></td>
+<td><input id="i46" oninput="input_changed(this)"></td>
+<td><input id="i47" oninput="input_changed(this)"></td>
+<td><input id="i48" oninput="input_changed(this)"></td>
+</tr>
+<tr>
+<td><input id="i50" oninput="input_changed(this)"></td>
+<td><input id="i51" oninput="input_changed(this)"></td>
+<td><input id="i52" oninput="input_changed(this)"></td>
+<td><input id="i53" oninput="input_changed(this)"></td>
+<td><input id="i54" oninput="input_changed(this)"></td>
+<td><input id="i55" oninput="input_changed(this)"></td>
+<td><input id="i56" oninput="input_changed(this)"></td>
+<td><input id="i57" oninput="input_changed(this)"></td>
+<td><input id="i58" oninput="input_changed(this)"></td>
+</tr>
+<tr>
+<td><input id="i60" oninput="input_changed(this)"></td>
+<td><input id="i61" oninput="input_changed(this)"></td>
+<td><input id="i62" oninput="input_changed(this)"></td>
+<td><input id="i63" oninput="input_changed(this)"></td>
+<td><input id="i64" oninput="input_changed(this)"></td>
+<td><input id="i65" oninput="input_changed(this)"></td>
+<td><input id="i66" oninput="input_changed(this)"></td>
+<td><input id="i67" oninput="input_changed(this)"></td>
+<td><input id="i68" oninput="input_changed(this)"></td>
+</tr>
+<tr>
+<td><input id="i70" oninput="input_changed(this)"></td>
+<td><input id="i71" oninput="input_changed(this)"></td>
+<td><input id="i72" oninput="input_changed(this)"></td>
+<td><input id="i73" oninput="input_changed(this)"></td>
+<td><input id="i74" oninput="input_changed(this)"></td>
+<td><input id="i75" oninput="input_changed(this)"></td>
+<td><input id="i76" oninput="input_changed(this)"></td>
+<td><input id="i77" oninput="input_changed(this)"></td>
+<td><input id="i78" oninput="input_changed(this)"></td>
+</tr>
+<tr>
+<td><input id="i80" oninput="input_changed(this)"></td>
+<td><input id="i81" oninput="input_changed(this)"></td>
+<td><input id="i82" oninput="input_changed(this)"></td>
+<td><input id="i83" oninput="input_changed(this)"></td>
+<td><input id="i84" oninput="input_changed(this)"></td>
+<td><input id="i85" oninput="input_changed(this)"></td>
+<td><input id="i86" oninput="input_changed(this)"></td>
+<td><input id="i87" oninput="input_changed(this)"></td>
+<td><input id="i88" oninput="input_changed(this)"></td>
+</tr>
+</tbody>
+</table>
+<p>
+</p><div id="result1"></div>
+</section>
+
+<script>
+start_game();
+</script>
+
+</body>
+</html>

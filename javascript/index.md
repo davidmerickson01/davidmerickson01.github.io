@@ -21,3 +21,4 @@ Pages
 * [Guess My Age](guess_my_age)
 * [Hangman](hangman)
 * [Tic-Tac-Toe](tictactoe)
+* [Sudoku](sudoku) - recursive algorthm to generate puzzle
