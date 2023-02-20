@@ -12,17 +12,10 @@ body {
 
 header {
     background-color: #666;
-    padding: 5px;
+    padding: 1px;
     text-align: center;
-    font-size: 20px;
     color: white;
 }
-
-table {
-    margin-left: auto;
-    margin-right: auto;
-}
-
 
 section {
     margin-left: auto;
@@ -32,18 +25,77 @@ section {
     font-size: 25px;
 }
 
-input, button {
+button {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 25px;
 }
 
-input {
-    width:30px;
+#board {
+    width: 450px;
+    height: 450px;
+
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
+
+.tile {
+    width: 48px;
+    height: 48px;
+    border: 1px solid lightgray;
+
+    /* Text */
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#digits {
+    width: 450px;
+    height: 50px;
+
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.number {
+    width: 44px;
+    height: 44px;
+    border: 1px solid black;
+    margin: 2px;
+
+    /* Text */
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.current-digit {
+    background-color: gray;
+}
+
+.horizontal-line {
+    border-bottom: 2px solid black;
+}
+
+.vertical-line {
+    border-right: 2px solid black;
+}
+
 </style>
 
 <script>
 var solution; // global
+var currentDigit = null;
 
 // return true if any number in the one-dim array is duplicate, ignoring zeroes
 function dup(a)
@@ -160,17 +212,10 @@ function clear_grid()
     for (i=0;i<9;i++) {
         for (j=0;j<9;j++) {
             element = document.getElementById("i"+i+j);
-            element.value = "";
+            element.innerText = "";
             element.style.background = "";
         }
     }
-}
-
-function start_game()
-{
-    clear_grid();
-    generate();
-    give_hint(9)
 }
 
 function check_game()
@@ -179,7 +224,7 @@ function check_game()
     for (i=0;i<9;i++) {
         for (j=0;j<9;j++) {
             element = document.getElementById("i"+i+j);
-            if (element.value != "" && element.value != solution[i][j]) {
+            if (element.innerText != "" && element.innerText != solution[i][j]) {
                 element.style.background = "red";
             }
             else {
@@ -187,15 +232,6 @@ function check_game()
             }
         }
     }
-}
-
-function input_changed(input)
-{
-    // validate input to be only a single digit
-    if (input.value.length > 1) input.value = input.value[0];
-    let i = parseInt(input.value);
-    console.log(input.id,input.value,i)
-    if (isNaN(i) || i == 0) input.value = "";
 }
 
 function give_hint(num)
@@ -206,7 +242,7 @@ function give_hint(num)
     for (i=0;i<9;i++) {
         for (j=0;j<9;j++) {
             element = document.getElementById("i"+i+j);
-            if (element.value == "") empty++;
+            if (element.innerText == "") empty++;
         }
     }
     if (num > empty) num = empty;
@@ -215,8 +251,8 @@ function give_hint(num)
         i = Math.floor(Math.random() * 9);
         j = Math.floor(Math.random() * 9);
         element = document.getElementById("i"+i+j);
-        if (element.value == "") {
-            element.value = solution[i][j];
+        if (element.innerText == "") {
+            element.innerText = solution[i][j];
             num--;
         }
     }
@@ -228,11 +264,43 @@ function show_puzzle()
     for (i=0;i<9;i++) {
         for (j=0;j<9;j++) {
             element = document.getElementById("i"+i+j);
-            element.value = solution[i][j];
+            element.innerText = solution[i][j];
             element.style.background = "";
         }
     }
 }
+
+function selectNumber() {
+    if (currentDigit != null) {
+        currentDigit.classList.remove("current-digit");
+    }
+    currentDigit = this;
+    currentDigit.classList.add("current-digit");
+
+}
+
+function selectTile() {
+    if (currentDigit) {
+        if (this.innerText == currentDigit.innerText) {
+            // clear
+            this.innerText = "";
+        }
+        else {
+            // set
+            this.innerText = currentDigit.innerText;
+        }
+        this.style.background = "";
+    }
+}
+
+function start_game()
+{
+    clear_grid();
+    generate();
+    give_hint(9)
+}
+
+
 </script>
 </head>
 <body>
@@ -247,114 +315,42 @@ function show_puzzle()
 <button onclick="check_game()">Check</button>
 <button onclick="give_hint(1)">Hint</button>
 <button onclick="show_puzzle()">Show</button>
-</p><p>
-</p><table id="board">
-<tbody>
-<tr>
-<td><input id="i00" oninput="input_changed(this)"></td>
-<td><input id="i01" oninput="input_changed(this)"></td>
-<td><input id="i02" oninput="input_changed(this)"></td>
-<td><input id="i03" oninput="input_changed(this)"></td>
-<td><input id="i04" oninput="input_changed(this)"></td>
-<td><input id="i05" oninput="input_changed(this)"></td>
-<td><input id="i06" oninput="input_changed(this)"></td>
-<td><input id="i07" oninput="input_changed(this)"></td>
-<td><input id="i08" oninput="input_changed(this)"></td>
-</tr>
-<tr>
-<td><input id="i11" oninput="input_changed(this)"></td>
-<td><input id="i10" oninput="input_changed(this)"></td>
-<td><input id="i12" oninput="input_changed(this)"></td>
-<td><input id="i13" oninput="input_changed(this)"></td>
-<td><input id="i14" oninput="input_changed(this)"></td>
-<td><input id="i15" oninput="input_changed(this)"></td>
-<td><input id="i16" oninput="input_changed(this)"></td>
-<td><input id="i17" oninput="input_changed(this)"></td>
-<td><input id="i18" oninput="input_changed(this)"></td>
-</tr>
-<tr>
-<td><input id="i20" oninput="input_changed(this)"></td>
-<td><input id="i21" oninput="input_changed(this)"></td>
-<td><input id="i22" oninput="input_changed(this)"></td>
-<td><input id="i23" oninput="input_changed(this)"></td>
-<td><input id="i24" oninput="input_changed(this)"></td>
-<td><input id="i25" oninput="input_changed(this)"></td>
-<td><input id="i26" oninput="input_changed(this)"></td>
-<td><input id="i27" oninput="input_changed(this)"></td>
-<td><input id="i28" oninput="input_changed(this)"></td>
-</tr>
-<tr>
-<td><input id="i30" oninput="input_changed(this)"></td>
-<td><input id="i31" oninput="input_changed(this)"></td>
-<td><input id="i32" oninput="input_changed(this)"></td>
-<td><input id="i33" oninput="input_changed(this)"></td>
-<td><input id="i34" oninput="input_changed(this)"></td>
-<td><input id="i35" oninput="input_changed(this)"></td>
-<td><input id="i36" oninput="input_changed(this)"></td>
-<td><input id="i37" oninput="input_changed(this)"></td>
-<td><input id="i38" oninput="input_changed(this)"></td>
-</tr>
-<tr>
-<td><input id="i40" oninput="input_changed(this)"></td>
-<td><input id="i41" oninput="input_changed(this)"></td>
-<td><input id="i42" oninput="input_changed(this)"></td>
-<td><input id="i43" oninput="input_changed(this)"></td>
-<td><input id="i44" oninput="input_changed(this)"></td>
-<td><input id="i45" oninput="input_changed(this)"></td>
-<td><input id="i46" oninput="input_changed(this)"></td>
-<td><input id="i47" oninput="input_changed(this)"></td>
-<td><input id="i48" oninput="input_changed(this)"></td>
-</tr>
-<tr>
-<td><input id="i50" oninput="input_changed(this)"></td>
-<td><input id="i51" oninput="input_changed(this)"></td>
-<td><input id="i52" oninput="input_changed(this)"></td>
-<td><input id="i53" oninput="input_changed(this)"></td>
-<td><input id="i54" oninput="input_changed(this)"></td>
-<td><input id="i55" oninput="input_changed(this)"></td>
-<td><input id="i56" oninput="input_changed(this)"></td>
-<td><input id="i57" oninput="input_changed(this)"></td>
-<td><input id="i58" oninput="input_changed(this)"></td>
-</tr>
-<tr>
-<td><input id="i60" oninput="input_changed(this)"></td>
-<td><input id="i61" oninput="input_changed(this)"></td>
-<td><input id="i62" oninput="input_changed(this)"></td>
-<td><input id="i63" oninput="input_changed(this)"></td>
-<td><input id="i64" oninput="input_changed(this)"></td>
-<td><input id="i65" oninput="input_changed(this)"></td>
-<td><input id="i66" oninput="input_changed(this)"></td>
-<td><input id="i67" oninput="input_changed(this)"></td>
-<td><input id="i68" oninput="input_changed(this)"></td>
-</tr>
-<tr>
-<td><input id="i70" oninput="input_changed(this)"></td>
-<td><input id="i71" oninput="input_changed(this)"></td>
-<td><input id="i72" oninput="input_changed(this)"></td>
-<td><input id="i73" oninput="input_changed(this)"></td>
-<td><input id="i74" oninput="input_changed(this)"></td>
-<td><input id="i75" oninput="input_changed(this)"></td>
-<td><input id="i76" oninput="input_changed(this)"></td>
-<td><input id="i77" oninput="input_changed(this)"></td>
-<td><input id="i78" oninput="input_changed(this)"></td>
-</tr>
-<tr>
-<td><input id="i80" oninput="input_changed(this)"></td>
-<td><input id="i81" oninput="input_changed(this)"></td>
-<td><input id="i82" oninput="input_changed(this)"></td>
-<td><input id="i83" oninput="input_changed(this)"></td>
-<td><input id="i84" oninput="input_changed(this)"></td>
-<td><input id="i85" oninput="input_changed(this)"></td>
-<td><input id="i86" oninput="input_changed(this)"></td>
-<td><input id="i87" oninput="input_changed(this)"></td>
-<td><input id="i88" oninput="input_changed(this)"></td>
-</tr>
-</tbody>
-</table>
-<p>
-</p><div id="result1"></div>
-</section>
+</p>
+<div id="board">
+<script>
+<!-- with input from Brayden and Elias and some youtube tutorial -->
+for (let r = 0; r < 9; r++) {
+    for (let c = 0; c < 9; c++) {
+        let tile = document.createElement("div");
+        tile.id = "i"+r.toString()+c.toString();
+        if (r == 2 || r == 5) {
+            tile.classList.add("horizontal-line");
+        }
+        if (c ==2 || c == 5) {
+            tile.classList.add("vertical-line");
+        }
+        tile.addEventListener("click", selectTile);
+        tile.classList.add("tile");
+        document.getElementById("board").append(tile);
+    }
+    
+}
+</script>
+</div>
 
+<p>
+<div id="digits">
+<script>
+for (let i = 1; i <= 9; i++) {
+    let digit = document.createElement("div");
+    digit.id = i.toString();
+    digit.innerText = i.toString();
+    digit.addEventListener("click", selectNumber);
+    digit.classList.add("number");
+    document.getElementById("digits").append(digit);
+}
+</script>
+</section>
 <script>
 start_game();
 </script>
