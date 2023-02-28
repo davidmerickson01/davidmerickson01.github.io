@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+    background: #dFb687;
+    font-size: 35pt;
+    color: #ffffff;
+}
+
+.quizpanel {
+    margin-left: auto;
+    margin-right: auto;
+    width: 1000px;
+}
+
+.answer_section {
+    display: flex;
+    /* default is row */
+}
+
+.bubble {
+    border-radius: 25px;
+    padding: 20px; 
+    margin: 10px; 
+    width: 200px;
+    height: 150px; 
+}
+
+#question {
+    /* TODO: I wanted to set width: 100%, but something wasn't working */
+    width: 940px;
+    background: #6F1D1B;
+}
+
+#answer1 {
+    background: #99582A;
+}
+#answer2 {
+    background: #432818;
+}
+#answer3 {
+    background: #BB9457;
+}
+#answer4 {
+    background: #FFE6A7;
+}
+</style>
+</head>
+<body>
+
+<div class=quizpanel>
+<h1>VSA Quiz Machine</h1>
+<div class=bubble id=question>What is the most nutritious vegetable?</div>
+
+<div class=answer_section>
+<div class=bubble id=answer1>Broccoli</div>
+<div class=bubble id=answer2>Brussels Sprouts</div>
+<div class=bubble id=answer3>Asparagus</div>
+<div class=bubble id=answer4>Snickers</div>
+</div>
+
+<div id=result_section></div>
+</div>
+
+</body>
+</html>

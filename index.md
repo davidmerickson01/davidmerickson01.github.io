@@ -8,6 +8,8 @@ This website contains resources and programming examples that will be helpful.
 
 [JavaScript programming](javascript)
 
+[PHP programming](php)
+
 ## 2021-2022
 
 [Installing Python](installing_python)

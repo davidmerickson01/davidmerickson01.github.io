@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function select(num) {
+    document.getElementById("answer_input").value = num;
+    document.getElementById("quizform").submit();
+}
+</script>
+</head>
+<body>
+
+<!-- "get" is visible, and "post" is not -->
+<form method="get" id="quizform">
+<h1>VSA Quiz Machine</h1>
+What is the most nutritious vegetable?
+
+<ol>
+<li onclick="select(1)">Broccoli
+<li onclick="select(2)">Brussels Sprouts
+<li onclick="select(3)">Asparagus
+<li onclick="select(4)">Snickers
+</ol>
+
+<input style="visibility:hidden;" name=answer id="answer_input">
+</form>
+
+</body>
+</html>
