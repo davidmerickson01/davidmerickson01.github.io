@@ -12,7 +12,9 @@ In Chrome, click on the page, then right click, "View Source" and study the HTML
 ### Hello World
 * [HTML version](hello_world.html)
 * [JavaScript version](hello_world.js.html)
-* [PHP version](hello_world.php)
+* [Download PHP version](hello_world.php)
+* [Hosted PHP version](https://vsawebproject.000webhostapp.com/php/hello_world.php)
+
 
 ### Quiz user interface
 * [Basic HTML](quiz)
@@ -25,5 +27,7 @@ In Chrome, click on the page, then right click, "View Source" and study the HTML
 * [Add JavaScript](quiz_form_javascript)
 
 ### Quiz PHP
-* [Basic PHP](basic_quiz.php)
-* [HTML, CSS, Javascript, Forms and PHP](quiz.php)
+* [Download Basic PHP](basic_quiz.php)
+* [Hosted Basic PHP](https://vsawebproject.000webhostapp.com/php/basic_quiz.php)
+* [Download "full" version](quiz.php)
+* [Hosted "full" version](https://vsawebproject.000webhostapp.com/php/quiz.php)
