@@ -43,3 +43,5 @@ HTML pages
 * [Add style](html/layout2) 
 * [More elements](html/layout3) 
 * [Navigation bar](html/layout4) 
+* [Float layout](html/float_layout) 
+* [Grid layout](html/grid_layout) 

@@ -1,0 +1,123 @@
+<html>
+<head>
+<!-- see https://www.w3schools.com/css/css_grid.asp -->
+<style>
+#mypage {
+    margin-left: auto;
+    margin-right: auto;
+    width: 800px;
+}
+
+/* colors from https://coolors.co/ */
+h1 {
+    text-align: center;
+    background-color: #034732;
+    height: 100px;
+    line-height: 100px; /* trick to vertically align */
+}
+
+nav {
+    text-align: center;
+    background-color: #EF8A17;
+}
+
+#sidebar {
+    background-color: #008148;
+    height: 100%;
+    width: 200px;
+    float: left;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 10px;
+    background-color: #2196F3;
+    padding: 10px;
+}
+
+.grid-container > div {
+  background-color: #C6C013;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+}
+
+footer {
+    text-align: center;
+    font-style: italic;
+    background-color: #EF8A17;
+}
+
+</style>
+</head>
+<body>
+<div id=mypage>
+
+<h1>VSA Programming Club</h1>
+
+<nav>
+Item 1 | Item 2 | Item 3
+</nav>
+
+<section>
+
+<div id=sidebar>
+<ul>
+<li>Veritas
+<li>W3 Schools
+<li>Color picker
+<li>What else?
+</ul>
+</div>
+
+<div class=grid-container>
+<div>
+<b>Mr. Erickson</b>
+<ul>
+<li><a href=www.broadcom.com>Programmer</a>
+<li><a href=https://www.kawasaki.com/en-us/motorcycle/concours/supersport-touring/concours14-abs>Motorcylist</a>
+<li><a href=https://www.nhl.com/ducks>Hockey Fan</a>
+</ul>
+</div>
+
+<div>
+Joe Cool
+<p>
+<img height=100 src=https://static.wikia.nocookie.net/peanuts/images/1/1e/Joecooltrans.png>
+</div>
+
+<div>
+Hello World!
+</div>
+
+<div>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit
+</div>
+
+<div>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit
+</div>
+
+<div>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit
+</div>
+
+<div>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit
+</div>
+
+<div>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit
+</div>
+</div>
+</section>
+
+<footer>
+<p>
+TODO: Helpful links and information
+</p>
+</footer>
+
+</div>
+</body>
