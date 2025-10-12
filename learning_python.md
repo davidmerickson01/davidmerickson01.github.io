@@ -14,7 +14,8 @@ To write python code, you need a text editor. You have several options:
 
 # Learning Python
 
-https://www.w3schools.com/ has tutorials and references
+<https://www.w3schools.com> has tutorials and references
 
-We're also going to learn by using https://chatgpt.com/ and https://gemini.google.com/
+We're also going to learn by using <https://chatgpt.com> and <https://gemini.google.com>
+
 
