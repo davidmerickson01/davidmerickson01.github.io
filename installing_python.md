@@ -2,24 +2,28 @@
 
 * Go to <https://www.python.org>
 * Click the "Downloads" menu item
-* If you run Windows, click "Download Python 3.10.0" or whatever the latest version is.
+* If you run Windows, click "Download Python 3.14.0" or whatever the latest version is.
     * If you run Mac, there are instructions after "Looking for Python with a different OS?".
     * If you use Chromebook, Python should already be included. Press Ctrl+Alt+T for a terminal, then type "python3".
 * After it downloads, run the ".exe" file, usually by clicking on the download button at the bottom of the browser
+* Before cliking "Install Now", first click the "Add python.exe to PATH" checkbox at the bottom of the dialog!
+    * You need this to run python from a command prompt (which I will teach you about.)*
 
-*IMPORTANT: click the "Add Python 3.10 to PATH" checkbox! You need this to run python from a command prompt (which I will teach you about.)*
-
-* Then click "Install Now" (If you forget to do this, just install again.)
-* Windows "User Account Control" will ask you, "Do yuo want to allow this app to make changes to your device?" Click Yes.
+* Now click "Install Now"
+* Windows "User Account Control" will ask you, "Do you want to allow this app to make changes to your device?" Click Yes.
 * When you see "Setup was successful", then click "Close"
-* Click the Windows button in the lower left and type "IDLE (Python 3.10...)".
+* Click the Windows button in the lower left and type "IDLE (Python 3.14 64 bit)".
 * It will launch a program called "IDLE Shell" which prints text like this:
 
-        Python 3.10.0 (tags/v3.10.0:b494f59, Oct  4 2021, 19:00:18) [MSC v.1929 64 bit (AMD64)] on win32
-        Type "help", "copyright", "credits" or "license()" for more information.
+        Python 3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)] on win32
+        Enter "help" below or click "Help" above for more information.
         >>>
 
 * Now you are ready to program in Python!
+
+Other notes:
+
+* We are not using Python 2, and the syntax does not match Python 3. If you have Python 2 installed, or an earlier version of Python 3, you probably want to uninstall that first.
 
 # Your First Program
 

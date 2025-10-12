@@ -2,6 +2,13 @@
 
 This website contains resources and programming examples that will be helpful.
 
+## 2025-2026
+
+[Installing Python](installing_python)
+
+[Learning Python](learning_python)
+
+
 ## 2022-2023
 
 [HTML programming](html)
@@ -11,8 +18,6 @@ This website contains resources and programming examples that will be helpful.
 [PHP programming](php)
 
 ## 2021-2022
-
-[Installing Python](installing_python)
 
 * Hello World [download](python/hello_world.py) [github](https://github.com/davidmerickson01/davidmerickson01.github.io/tree/master/python/hello_world.py)
 * Final Exam Prioritizer [download](python/final_exam_prioritizer.py) [github](https://github.com/davidmerickson01/davidmerickson01.github.io/tree/master/python/final_exam_prioritizer.py)
