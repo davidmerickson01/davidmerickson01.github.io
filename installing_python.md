@@ -35,12 +35,6 @@ Type this after the "\>\>\>" prompt and press Enter:
 
 You have begun!
 
-# Learning on your own
-
-* Go to <https://www.python.org>
-* Click the "Documentation" menu item. 
-* Find something that looks interesting. If you don't know, click on "Beginner's Guide" and read a bit.
-
 # Installing pygame on Windows
 
 * We're going to use <https://www.pygame.org> to create 2D games. Click on "Getting Started" for installation instructions. Or do the following...
