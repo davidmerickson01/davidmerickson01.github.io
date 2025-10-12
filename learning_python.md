@@ -9,8 +9,8 @@ Installing python gives you two development tools:
 To write python code, you need a text editor. You have several options:
 * IDLE has an editor and debugger. This is where we'll start.
 * notepad (Windows) or TextEdit (Mac) are freely available
-* VSCode (https://code.visualstudio.com/) - I use this at work
-* You cannot use MS Word or Wordpad. They are not text editors.
+* VSCode (<https://code.visualstudio.com>) - I use this at work
+* You cannot use Microsoft Word or Wordpad. They are not text editors.
 
 # Learning Python
 
