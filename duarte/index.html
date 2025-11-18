@@ -4,131 +4,78 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Treehouse University</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --bg:#f5f8fb; --card:#ffffff; --accent:#2a9d8f; --muted:#6b7280; --glass: rgba(255,255,255,0.6);
-      --radius:14px; --shadow: 0 8px 20px rgba(12,20,40,0.08);
-    }
-    *{box-sizing:border-box}
-    body{font-family:Inter,system-ui,Segoe UI,Roboto,'Helvetica Neue',Arial;margin:0;background:linear-gradient(180deg,var(--bg),#eef6f7);color:#0b1220}
-    .container{max-width:1100px;margin:0 auto;padding:28px}
-
-    /* NAV */
-    header{backdrop-filter: blur(6px);position:sticky;top:12px;z-index:60}
-    .nav-wrap{display:flex;align-items:center;justify-content:space-between;background:var(--glass);padding:10px 14px;border-radius:20px;box-shadow:var(--shadow)}
-    .brand{display:flex;gap:12px;align-items:center}
-    .logo{width:48px;height:48px;background:linear-gradient(135deg,var(--accent),#264653);border-radius:12px;display:flex;align-items:center;justify-content:center;color:white;font-weight:700}
-    nav ul{list-style:none;display:flex;gap:16px;margin:0;padding:0}
-    nav a{color:var(--muted);text-decoration:none;font-weight:600}
-    nav a:hover{color:var(--accent)}
-    .cta{background:var(--accent);color:white;padding:8px 14px;border-radius:10px;text-decoration:none;font-weight:700}
-
-    /* Hero */
-    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;margin:28px 0}
-    .hero-card{background:var(--card);padding:28px;border-radius:20px;box-shadow:var(--shadow)}
-    .kicker{color:var(--accent);font-weight:700}
-    h1{margin:6px 0 12px;font-size:32px}
-    p.lead{color:var(--muted);margin:0}
-
-    /* Gallery */
-    .gallery{margin-top:18px}
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-    .grid img{width:100%;height:200px;object-fit:cover;border-radius:12px;cursor:pointer;display:block}
-
-    /* Contact */
-    .contact{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}
-    form{background:var(--card);padding:18px;border-radius:12px;box-shadow:var(--shadow)}
-    .field{display:flex;flex-direction:column;margin-bottom:12px}
-    label{font-size:13px;color:var(--muted);margin-bottom:6px}
-    input,textarea{padding:10px;border-radius:8px;border:1px solid #e6eef0;font-size:14px}
-    button{background:var(--accent);color:white;padding:10px 14px;border-radius:10px;border:0;font-weight:700}
-
-    /* Footer */
-    footer{margin:32px 0;color:var(--muted);text-align:center}
-
-    /* Modal lightbox */
-    .lightbox{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(2,6,23,0.6);z-index:80}
-    .lightbox.open{display:flex}
-    .lightbox img{max-width:92%;max-height:86%;border-radius:10px;box-shadow:0 20px 60px rgba(0,0,0,0.5)}
-
-    /* Responsive */
-    @media(max-width:900px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,1fr)}.contact{grid-template-columns:1fr}.grid img{height:160px}}
-    @media(max-width:520px){.grid{grid-template-columns:1fr}.nav-wrap{padding:10px}.logo{width:40px;height:40px}.hero-card{padding:18px}}
-
-  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <header class="container">
-    <div class="nav-wrap">
-      <div class="brand">
-        <div class="logo">TU</div>
+<body class="bg-slate-100 text-slate-900">
+  <!-- NAVIGATION -->
+  <header class="sticky top-0 z-50 backdrop-blur bg-white/70 shadow-sm">
+    <div class="max-w-6xl mx-auto flex items-center justify-between p-4">
+      <div class="flex items-center gap-3">
+        <div class="w-12 h-12 bg-teal-600 rounded-xl flex items-center justify-center text-white font-bold">TU</div>
         <div>
-          <div style="font-weight:700">Treehouse University</div>
-          <div style="font-size:12px;color:var(--muted)">Grow. Learn. Thrive.</div>
+          <div class="font-bold">Treehouse University</div>
+          <div class="text-xs text-slate-500">Grow. Learn. Thrive.</div>
         </div>
       </div>
-      <nav>
-        <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#gallery">Gallery</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#contact" class="cta">Contact Us</a></li>
-        </ul>
+
+      <nav class="hidden md:flex gap-6 font-semibold text-slate-600">
+        <a href="#home" class="hover:text-teal-600">Home</a>
+        <a href="#gallery" class="hover:text-teal-600">Gallery</a>
+        <a href="#about" class="hover:text-teal-600">About</a>
+        <a href="#contact" class="px-3 py-1 bg-teal-600 text-white rounded-lg">Contact Us</a>
       </nav>
     </div>
   </header>
 
-  <main class="container">
-    <section id="home" class="hero">
-      <div class="hero-card">
-        <div class="kicker">Welcome</div>
-        <h1>Treehouse University — a place for curious minds</h1>
-        <p class="lead">Hands-on courses, nature-inspired campus and a creative community. Explore our gallery below and reach out via our contact form.</p>
-        <div style="margin-top:16px;display:flex;gap:8px;align-items:center">
-          <a href="#gallery" class="cta">See Gallery</a>
-          <a href="#about" style="text-decoration:none;color:var(--muted);font-weight:700">Learn More →</a>
+  <main class="max-w-6xl mx-auto p-6">
+
+    <!-- HERO -->
+    <section id="home" class="grid md:grid-cols-2 gap-8 mt-6">
+      <div class="bg-white shadow p-6 rounded-2xl">
+        <h3 class="text-teal-600 font-bold">Welcome</h3>
+        <h1 class="text-3xl font-bold mt-2">Treehouse University — a place for curious minds</h1>
+        <p class="text-slate-500 mt-2">Hands-on courses, nature-inspired campus and a creative community. Explore our gallery below and reach out via our contact form.</p>
+        <div class="flex gap-4 mt-4">
+          <a href="#gallery" class="px-4 py-2 bg-teal-600 text-white rounded-lg font-semibold">See Gallery</a>
+          <a href="#about" class="text-slate-600 font-semibold">Learn More →</a>
         </div>
       </div>
 
-      <aside style="border-radius:14px;overflow:hidden;background:linear-gradient(180deg,#e8f6f4,#ffffff);box-shadow:var(--shadow);height:280px;display:flex;align-items:center;justify-content:center">
-        <div style="text-align:center;padding:20px">
-          <h3 style="margin:0 0 6px">Next Open Day</h3>
-          <div style="font-weight:700;font-size:20px">Saturday, May 17, 2025</div>
-          <p style="color:var(--muted);margin-top:6px">Workshops, tours and treehouse showcases.</p>
+      <div class="bg-gradient-to-b from-teal-50 to-white shadow rounded-2xl flex items-center justify-center p-6">
+        <div class="text-center">
+          <h3 class="text-lg font-bold">Next Open Day</h3>
+          <p class="text-xl font-bold mt-1">Saturday, May 17, 2025</p>
+          <p class="text-slate-500 mt-2">Workshops, tours and treehouse showcases.</p>
         </div>
-      </aside>
-    </section>
-
-    <section id="gallery" class="gallery">
-      <h2>Picture Gallery</h2>
-      <p style="color:var(--muted);margin-top:6px">A sample of our campus, workshops and student projects.</p>
-      <div class="grid" id="galleryGrid">
-        <!-- 9 placeholder images from picsum - replace with your own images -->
-        <img src="https://picsum.photos/id/1015/800/600" alt="Treehouse exterior" data-full="https://picsum.photos/id/1015/1200/900">
-        <img src="https://picsum.photos/id/1025/800/600" alt="Classroom outdoors" data-full="https://picsum.photos/id/1025/1200/900">
-        <img src="https://picsum.photos/id/1035/800/600" alt="Student woodworking" data-full="https://picsum.photos/id/1035/1200/900">
-        <img src="https://picsum.photos/id/1045/800/600" alt="Night view of campus" data-full="https://picsum.photos/id/1045/1200/900">
-        <img src="https://picsum.photos/id/1055/800/600" alt="Tree canopy walkway" data-full="https://picsum.photos/id/1055/1200/900">
-        <img src="https://picsum.photos/id/1065/800/600" alt="Workshop tools" data-full="https://picsum.photos/id/1065/1200/900">
-        <img src="https://picsum.photos/id/1075/800/600" alt="Group beside treehouse" data-full="https://picsum.photos/id/1075/1200/900">
-        <img src="https://picsum.photos/id/1085/800/600" alt="Student planting" data-full="https://picsum.photos/id/1085/1200/900">
-        <img src="https://picsum.photos/id/1095/800/600" alt="Aerial of campus" data-full="https://picsum.photos/id/1095/1200/900">
       </div>
     </section>
 
-    <section id="about" style="margin-top:22px">
-      <h2>About Treehouse University</h2>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:12px">
-        <div style="background:var(--card);padding:16px;border-radius:12px;box-shadow:var(--shadow)">
-          <h3 style="margin-top:0">Our Mission</h3>
-          <p style="color:var(--muted)">To combine practical skills and environmental stewardship in an inspiring, hands-on learning environment.</p>
+    <!-- GALLERY -->
+    <section id="gallery" class="mt-10">
+      <h2 class="text-2xl font-bold">Picture Gallery</h2>
+      <p class="text-slate-500 mt-1">Here's a few things we've been doing.</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-4">
+        <img src="images/david_and_anders.jpg" class="rounded-xl shadow object-cover h-48 w-full" />
+        <img src="images/at_work.jpg" class="rounded-xl shadow object-cover h-48 w-full" />
+        <img src="images/david_and_mike.jpg" class="rounded-xl shadow object-cover h-48 w-full" />
+        <img src="images/david_minnesota_fall.jpg" class="rounded-xl shadow object-cover h-48 w-full" />
+        <img src="images/david_z.jpg" class="rounded-xl shadow object-cover h-48 w-full" />
+        <img src="images/ducks_hockey.jpg" class="rounded-xl shadow object-cover h-48 w-full" />
+        <img src="images/my_dogs.jpg" class="rounded-xl shadow object-cover h-48 w-full" />
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="mt-10">
+      <h2 class="text-2xl font-bold">About Treehouse University</h2>
+      <div class="grid md:grid-cols-2 gap-4 mt-4">
+        <div class="bg-white p-5 rounded-xl shadow">
+          <h3 class="font-bold text-lg">Our Mission</h3>
+          <p class="text-slate-600 mt-2">To combine practical skills and environmental stewardship in an inspiring, hands-on learning environment.</p>
         </div>
-        <div style="background:var(--card);padding:16px;border-radius:12px;box-shadow:var(--shadow)">
-          <h3 style="margin-top:0">Programs</h3>
-          <ul style="margin:0;color:var(--muted)">
+        <div class="bg-white p-5 rounded-xl shadow">
+          <h3 class="font-bold text-lg">Programs</h3>
+          <ul class="text-slate-600 mt-2 list-disc ml-5">
             <li>Woodworking & Design</li>
             <li>Permaculture & Ecology</li>
             <li>Creative Technologies</li>
@@ -137,73 +84,37 @@
       </div>
     </section>
 
-    <section id="contact" style="margin-top:22px">
-      <h2>Contact Us</h2>
-      <div class="contact">
-        <form id="contactForm" onsubmit="return handleSubmit(event)">
-          <div class="field"><label for="name">Full name</label><input id="name" name="name" required></div>
-          <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" required></div>
-          <div class="field"><label for="message">Message</label><textarea id="message" name="message" rows="5" required></textarea></div>
-          <div style="display:flex;gap:8px;align-items:center">
-            <button type="submit">Send message</button>
-            <div id="status" style="color:var(--muted);font-size:14px"></div>
+    <!-- CONTACT -->
+    <section id="contact" class="mt-10">
+      <h2 class="text-2xl font-bold">Contact Us</h2>
+      <div class="grid md:grid-cols-2 gap-6 mt-4">
+        <form class="bg-white p-5 rounded-xl shadow space-y-3">
+          <div>
+            <label class="block text-sm text-slate-600">Full Name</label>
+            <input class="w-full border rounded px-3 py-2" />
           </div>
+          <div>
+            <label class="block text-sm text-slate-600">Email</label>
+            <input type="email" class="w-full border rounded px-3 py-2" />
+          </div>
+          <div>
+            <label class="block text-sm text-slate-600">Message</label>
+            <textarea rows="5" class="w-full border rounded px-3 py-2"></textarea>
+          </div>
+          <button class="px-4 py-2 bg-teal-600 text-white rounded-lg font-semibold">Send Message</button>
         </form>
 
-        <div style="background:var(--card);padding:16px;border-radius:12px;box-shadow:var(--shadow)">
-          <h3 style="margin-top:0">Visit us</h3>
-          <p style="color:var(--muted);margin:0">123 Canopy Lane<br>Woodsville, CA 94000</p>
-          <p style="margin-top:12px;color:var(--muted)"><strong>Email:</strong> <a href="mailto:info@treehouseuniversity.edu">info@treehouseuniversity.edu</a></p>
-          <p style="margin-top:6px;color:var(--muted)"><strong>Phone:</strong> (555) 555-0142</p>
+        <div class="bg-white p-5 rounded-xl shadow space-y-2 text-slate-600">
+          <h3 class="font-bold text-lg text-slate-800">Visit us</h3>
+          <p>123 Canopy Lane<br />Woodsville, CA 94000</p>
+          <p><strong>Email:</strong> info@treehouseuniversity.edu</p>
+          <p><strong>Phone:</strong> (555) 555-0142</p>
         </div>
       </div>
     </section>
 
-    <footer>
-      <p>© Treehouse University — Built with curiosity.</p>
-    </footer>
+    <footer class="text-center text-slate-500 mt-12 mb-4">© Treehouse University — Built with curiosity.</footer>
+
   </main>
-
-  <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
-    <img id="lightboxImg" src="" alt="Expanded image">
-  </div>
-
-  <script>
-    // Lightbox
-    const grid = document.getElementById('galleryGrid')
-    const lightbox = document.getElementById('lightbox')
-    const lightboxImg = document.getElementById('lightboxImg')
-
-    grid.addEventListener('click', e => {
-      const img = e.target.closest('img')
-      if(!img) return
-      const full = img.dataset.full || img.src
-      lightboxImg.src = full
-      lightboxImg.alt = img.alt || 'Gallery image'
-      lightbox.classList.add('open')
-    })
-    function closeLightbox(e){
-      if(e.target === lightbox || e.target === lightboxImg) {
-        lightbox.classList.remove('open')
-        lightboxImg.src = ''
-      }
-    }
-
-    // Simple contact handler (client-side only)
-    function handleSubmit(e){
-      e.preventDefault()
-      const name = document.getElementById('name').value.trim()
-      const email = document.getElementById('email').value.trim()
-      const message = document.getElementById('message').value.trim()
-      const status = document.getElementById('status')
-      if(!name || !email || !message){ status.textContent = 'Please complete all fields.'; return false }
-      // open user's email client as a fallback
-      const subject = encodeURIComponent('Treehouse University contact from ' + name)
-      const body = encodeURIComponent(message + '\n\nContact email: ' + email)
-      window.location.href = `mailto:info@treehouseuniversity.edu?subject=${subject}&body=${body}`
-      status.textContent = 'Opening your email client...'
-      return false
-    }
-  </script>
 </body>
 </html>
