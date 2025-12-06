@@ -35,12 +35,33 @@ Type this after the "\>\>\>" prompt and press Enter:
 
 You have begun!
 
-# Installing pygame on Windows
+# Changing the default folder for IDLE
 
-* We're going to use <https://www.pygame.org> to create 2D games. Click on "Getting Started" for installation instructions. Or do the following...
+When starting Python IDLE, it's helpful if it points to your own folder of code, not the Python binaries.
+
+Here's how you can change it on Windows:
+
+* From start menu, right click “Open File Location”
+* On IDLE binary, right click “Properties”
+* Edit “Start In” text box
+* An easy technique is to copy yuor location from Windows Explorer, then paste here
+
+*WARNING: Don’t change “Target” text box! And if you mess any of this up, just reinstall Python*
+
+# Using pip to install packages on Windows
+
+pip is the Python Package Installer. You need it to extend your standard python installation with other modules. (pip is a recursive acronym which means "Pip Installs Packages").
+
 * Click Windows button in left corner
 * Type "cmd" and select "Command Prompt". You may need to right-click and "Run as Administrator".
-* Type "pip install pygame". This will run the "python installer program" and install the pygame package. You will see something like the following:
+* Type "pip". It should find the program and print help.
+
+        If it says "pip not found", then you need to uninstall and reinstall Python and follow my "IMPORTANT: click the "Add Python 3.10 to PATH" checkbox!" advice above.
+
+* Now, find out what packages you have by running "pip list"
+* Some packages we're going to use: pygame, requests, 
+
+* Type "pip install pygame". You will see something like the following:
 
         Collecting pygame
           Downloading pygame-2.0.2-cp310-cp310-win_amd64.whl (5.3 MB)
@@ -48,15 +69,9 @@ You have begun!
         Installing collected packages: pygame
         Successfully installed pygame-2.0.2
 
-* If it says "pip not found", then you need to uninstall and reinstall Python and follow my "IMPORTANT: click the "Add Python 3.10 to PATH" checkbox!" advice above.
-* You may see this warning:
+You may see a warning "A new release of pip is available". Just follow the instructions.
 
-        WARNING: You are using pip version 21.2.3; however, version 21.2.4 is available.
-        You should consider upgrading via the 'C:\Users\david\AppData\Local\Programs\Python\Python310\python.exe -m pip install --upgrade pip' command.
-
-* If you want, you can also upgrade pip as instructed. Just type this "python -m pip install --upgrade pip" and press Enter.
-
-# Installing pygame on Mac
+# Using pip on Mac
 
 The following are modifications to the previous Windows directions
 
