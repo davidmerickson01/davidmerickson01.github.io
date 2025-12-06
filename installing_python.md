@@ -56,7 +56,7 @@ pip is the Python Package Installer. You need it to extend your standard python 
 * Type "cmd" and select "Command Prompt". You may need to right-click and "Run as Administrator".
 * Type "pip". It should find the program and print help.
 
-        If it says "pip not found", then you need to uninstall and reinstall Python and follow my "IMPORTANT: click the "Add Python 3.10 to PATH" checkbox!" advice above.
+*If it says "pip not found", then you need to uninstall and reinstall Python and follow my "IMPORTANT: click the "Add Python 3.10 to PATH" checkbox!" advice above.*
 
 * Now, find out what packages you have by running "pip list"
 * Some packages we're going to use: pygame, requests, 
