@@ -8,6 +8,7 @@ This website contains resources and programming examples that will be helpful.
 
 [Learning Python](learning_python)
 
+github repository: <https://github.com/davidmerickson01/vsa_programming_club/tree/master/2025-2026>
 
 ## 2022-2023
 
