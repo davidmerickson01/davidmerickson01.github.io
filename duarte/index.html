@@ -9,11 +9,12 @@
     html { scroll-behavior: smooth; }
   </style>
 </head>
+
 <body class="bg-slate-100 text-slate-900">
   <header class="sticky top-0 z-50 backdrop-blur bg-white/70 shadow-sm">
     <div class="max-w-6xl mx-auto flex items-center justify-between p-4">
       <div class="flex items-center gap-3">
-        <div class="w-12 h-12 bg-teal-600 rounded-xl flex items-center justify-center text-white font-bold">TU</div>
+        <div class="w-12 h-12 bg-teal-600 rounded-xl flex items-center justify-center text-white font-bold">DF</div>
         <div>
           <div class="font-bold">The Duarte Family</div>
           <div class="text-xs text-slate-500">Family • Faith • Memories</div>
@@ -21,120 +22,200 @@
       </div>
 
       <nav class="hidden md:flex gap-6 font-semibold text-slate-600">
-  <a href="#home" class="hover:text-teal-600">Home</a>
-  <a href="#family" class="hover:text-teal-600">Family</a>
-  <a href="#friends" class="hover:text-teal-600">Friends</a>
-  <a href="#poker" class="hover:text-teal-600">Poker</a>
-  <a href="#tv" class="hover:text-teal-600">TV</a>
-  <a href="#music" class="hover:text-teal-600">Music</a>
-  <a href="#videocall" class="hover:text-teal-600">Video Call</a>
-  <a href="#about" class="hover:text-teal-600">About</a>
-  <a href="#contact" class="px-3 py-1 bg-teal-600 text-white rounded-lg">Contact</a>
-</nav>
+      <a href="#family" class="hover:text-teal-600">Family</a>
+      <a href="#friends" class="hover:text-teal-600">Friends</a>
+      <a href="#tv" class="hover:text-teal-600">Watching</a>
+      <a href="#bible" class="hover:text-teal-600">Bible</a>
+      <a href="#work" class="hover:text-teal-600">Work</a>
+      <a href="#visit" class="px-3 py-1 bg-teal-600 text-white rounded-lg">Visit</a>
+      </nav>
     </div>
   </header>
 
   <main class="max-w-6xl mx-auto p-6">
 
-    <section id="home" class="grid md:grid-cols-2 gap-8 mt-6">
-      <div class="bg-white shadow p-6 rounded-2xl">
-        <h3 class="text-teal-600 font-bold">Welcome</h3>
-        <h1 class="text-3xl font-bold mt-2">The Duarte Family — a place for shared memories</h1>
-        <p class="text-slate-500 mt-2">Hands-on courses, nature-inspired campus and a creative community. Explore our gallery below and reach out via our contact form.</p>
-        <div class="flex gap-4 mt-4">
-          <a href="#gallery" class="px-4 py-2 bg-teal-600 text-white rounded-lg font-semibold">See Gallery</a>
-          <a href="#about" class="text-slate-600 font-semibold">Learn More →</a>
-        </div>
-      </div>
-
-      <div class="bg-gradient-to-b from-teal-50 to-white shadow rounded-2xl flex items-center justify-center p-6">
-        <div class="text-center">
-          <h3 class="text-lg font-bold">Next Open Day</h3>
-          <p class="text-xl font-bold mt-1">Saturday, May 17, 2025</p>
-          <p class="text-slate-500 mt-2">Workshops, tours and treehouse showcases.</p>
-        </div>
-      </div>
+    <!-- Hero Image -->
+    <section class="w-full">
+      <img
+        src="images/duarte_family.webp"
+        alt="Duarte Family"
+        class="w-full h-[60vh] object-cover"
+      />
     </section>
 
     <section id="family" class="mt-12 bg-white p-6 rounded-xl shadow">
       <h2 class="text-2xl font-bold text-teal-700">Family</h2>
 
-      <div class="mt-8">
-        <h3 class="text-xl font-bold text-teal-600">Wife</h3>
-        <div class="mt-4 flex flex-col items-center gap-2">
+    <!-- Wife -->
+    <div class="mt-8">
+      <p class="text-slate-600 mt-2">Here are the people that mean so much to me</p>
+      <h3 class="text-xl font-bold text-teal-600">Wife</h3>
+      <ul class="mt-4 grid grid-cols-2 sm:grid-cols-4 gap-6">
+        <li class="flex flex-col items-center gap-2">
           <img src="images/jill.jpg" class="w-32 h-32 rounded-full object-cover" />
-          <span class="text-slate-700 text-lg font-semibold">Jill</span>
-        </div>
+          <span>Jill</span>
+        </li>
+      </ul>
+    </div>
+
+
+      <!-- Children -->
+      <div class="mt-12">
+        <h3 class="text-xl font-bold text-teal-600">Children</h3>
+        <ul class="mt-4 grid grid-cols-2 sm:grid-cols-4 gap-6">
+          <li class="flex flex-col items-center gap-2">
+            <img src="images/abrahm.jpg" class="w-32 h-32 rounded-full object-cover" />
+            <span>Abrahm</span>
+          </li>
+          <li class="flex flex-col items-center gap-2">
+            <img src="images/sydney.jpg" class="w-32 h-32 rounded-full object-cover" />
+            <span>Sydney and Bryan</span>
+          </li>
+          <li class="flex flex-col items-center gap-2">
+            <img src="images/cecilia.jpg" class="w-32 h-32 rounded-full object-cover" />
+            <span>Cecilia and Gabe</span>
+          </li>
+          <li class="flex flex-col items-center gap-2">
+            <img src="images/megan.jpg" class="w-32 h-32 rounded-full object-cover" />
+            <span>Megan</span>
+          </li>
+        </ul>
       </div>
 
+      <!-- Grandchildren -->
       <div class="mt-12">
-        <h3 class="text-xl font-bold text-teal-600">Children & Grandchildren</h3>
-        <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div class="bg-slate-50 p-4 rounded-xl">
-            <h4 class="font-semibold text-lg mb-3">Children</h4>
-            <ul class="grid grid-cols-2 gap-4">
-              <li class="flex flex-col items-center gap-2"><img src="images/abrahm.jpg" class="w-24 h-24 rounded-full object-cover" /><span>Abrahm</span></li>
-              <li class="flex flex-col items-center gap-2"><img src="images/sydney.jpg" class="w-24 h-24 rounded-full object-cover" /><span>Sydney</span></li>
-              <li class="flex flex-col items-center gap-2"><img src="images/cecilia.jpg" class="w-24 h-24 rounded-full object-cover" /><span>Cecilia</span></li>
-              <li class="flex flex-col items-center gap-2"><img src="images/megan.jpg" class="w-24 h-24 rounded-full object-cover" /><span>Megan</span></li>
-            </ul>
-          </div>
-          <div class="bg-slate-50 p-4 rounded-xl">
-            <h4 class="font-semibold text-lg mb-3">Grandchildren</h4>
-            <ul class="grid grid-cols-2 gap-4">
-              <li class="flex flex-col items-center gap-2"><img src="images/theo.jpg" class="w-24 h-24 rounded-full object-cover" /><span>Theo</span></li>
-              <li class="flex flex-col items-center gap-2"><div class="w-24 h-24 rounded-full bg-slate-300 flex items-center justify-center">No Photo</div><span>One coming</span></li>
-            </ul>
-          </div>
-        </div>
+        <h3 class="text-xl font-bold text-teal-600">Grandchildren</h3>
+        <ul class="mt-4 grid grid-cols-2 sm:grid-cols-4 gap-6">
+          <li class="flex flex-col items-center gap-2">
+            <img src="images/theo.jpg" class="w-32 h-32 rounded-full object-cover" />
+            <span>Theo</span>
+          </li>
+          <li class="flex flex-col items-center gap-2">
+            <img src="images/new_baby.jpg" class="w-32 h-32 rounded-full object-cover" />
+            <span>One coming</span>
+          </li>
+        </ul>
       </div>
     </section>
 
     <section id="friends" class="mt-12 bg-white p-6 rounded-xl shadow">
-      <h2 class="text-2xl font-bold">Friends</h2>
-      <p class="text-slate-500 mt-1">Here are a few special people and memories.</p>
+      <h2 class="text-2xl font-bold text-teal-700">Friends</h2>
+      <p class="text-slate-500 mt-1">Look who has shown up around here</p>
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-4">
-        <img src="images/david_and_anders.jpg" class="rounded-xl shadow object-cover h-48 w-full" />
-        <img src="images/at_work.jpg" class="rounded-xl shadow object-cover h-48 w-full" />
         <img src="images/david_and_mike.jpg" class="rounded-xl shadow object-cover h-48 w-full" />
-        <img src="images/david_minnesota_fall.jpg" class="rounded-xl shadow object-cover h-48 w-full" />
+        <img src="images/don_and_craig.jpg" class="rounded-xl shadow object-cover h-48 w-full" />
+        <img src="images/david_trump_and_mike.png" class="rounded-xl shadow object-cover h-48 w-full" />
         <img src="images/david_z.jpg" class="rounded-xl shadow object-cover h-48 w-full" />
-        <img src="images/ducks_hockey.jpg" class="rounded-xl shadow object-cover h-48 w-full" />
-        <img src="images/my_dogs.jpg" class="rounded-xl shadow object-cover h-48 w-full" />
+        <img src="images/david_lebron_and_mike.png" class="rounded-xl shadow object-cover h-48 w-full" />
+        <img src="images/new_orange_hills_lakers.jpg" class="rounded-xl shadow object-cover h-48 w-full" />
       </div>
     </section>
 
     <section id="tv" class="mt-12 bg-white p-6 rounded-xl shadow">
-      <h2 class="text-2xl font-bold text-teal-700">Favorite TV Shows</h2>
-      <p class="text-slate-600 mt-2">A list of shows you enjoy watching.</p>
+      <h2 class="text-2xl font-bold text-teal-700">Watching</h2>
+      <p class="text-slate-600 mt-2">Here's some cool stuff I'm currently into.</p>
+
+      <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <a href="https://www.nba.com/lakers/" target="_blank" class="group">
+          <img src="images/la_lakers.jpg" alt="Show 1"
+               class="w-full h-48 object-cover rounded-xl shadow group-hover:opacity-90" />
+          <p class="mt-2 text-center font-semibold text-slate-700 group-hover:text-teal-600">
+            LA Lakers
+          </p>
+        </a>
+
+        <a href="https://www.bravotv.com/cash-cab" target="_blank" class="group">
+          <img src="images/cash_cab.jpg" alt="Show 2"
+               class="w-full h-48 object-cover rounded-xl shadow group-hover:opacity-90" />
+          <p class="mt-2 text-center font-semibold text-slate-700 group-hover:text-teal-600">
+            Cash Cab
+          </p>
+        </a>
+
+        <a href="https://www.youtube.com/watch?v=XVTjcYC3MeU" target="_blank" class="group">
+          <img src="images/ryan_ellis.jpg" alt="Show 3"
+               class="w-full h-48 object-cover rounded-xl shadow group-hover:opacity-90" />
+          <p class="mt-2 text-center font-semibold text-slate-700 group-hover:text-teal-600">
+            Ryan Ellis
+          </p>
+        </a>
+
+        <a href="https://nelsontreehouse.com/blog/our-final-season-of-treehouse-masters/" target="_blank" class="group">
+          <img src="images/treehouse_masters.jpg" alt="Show 4"
+               class="w-full h-48 object-cover rounded-xl shadow group-hover:opacity-90" />
+          <p class="mt-2 text-center font-semibold text-slate-700 group-hover:text-teal-600">
+            Treehouse Masters
+          </p>
+        </a>
+
+      </div>
+    </section>
+
+
+    <section id="bible" class="mt-12 bg-white p-6 rounded-xl shadow">
+      <h2 class="text-2xl font-bold text-teal-700">Psalm 23</h2>
+      <h3 class="font-bold">This has been a great comfort to me as I trust the Lord and wait on him</h3>
+<p class="text-slate-500 mt-2">
+The Lord is my shepherd; I shall not want.
+He makes me lie down in green pastures.
+He leads me beside still waters.
+He restores my soul.
+He leads me in paths of righteousness
+for his name's sake.
+<p class="text-slate-500 mt-2">
+Even though I walk through the valley of the shadow of death,
+I will fear no evil,
+for you are with me;
+your rod and your staff,
+they comfort me.
+<p class="text-slate-500 mt-2">
+You prepare a table before me
+in the presence of my enemies;
+you anoint my head with oil;
+my cup overflows.
+Surely goodness and mercy shall follow me
+all the days of my life,
+and I shall dwell in the house of the Lord
+forever.
+    </section>
+
+    <section id="work" class="mt-12 bg-white p-6 rounded-xl shadow">
+      <h2 class="text-2xl font-bold text-teal-700">Under Construction</h2>
+      <p class="text-slate-600 mt-2">Here are some of the things I plan to work on in 2026</p>
       <ul class="list-disc ml-6 text-slate-700 mt-3 space-y-1">
-        <li>Example Show 1</li>
-        <li>Example Show 2</li>
-        <li>Example Show 3</li>
+        <li>Poker night scheduling</li>
+        <li>Video conferencing</li>
+        <li>Integrating with <a href=https://cash.app/>CashApp</a></li>
       </ul>
     </section>
 
-    <section id="music" class="mt-12 bg-white p-6 rounded-xl shadow">
-      <h2 class="text-2xl font-bold text-teal-700">Favorite Music</h2>
-      <p class="text-slate-600 mt-2">Bands, genres, albums, or playlists you enjoy.</p>
-      <ul class="list-disc ml-6 text-slate-700 mt-3 space-y-1">
-        <li>Genre or Artist #1</li>
-        <li>Genre or Artist #2</li>
-        <li>Genre or Artist #3</li>
-      </ul>
+    <section id="visit" class="mt-12 bg-white p-6 rounded-xl shadow">
+      <h2 class="text-2xl font-bold text-teal-700">Come visit me</h2>
+      <p class="text-slate-600 mt-2">New Orange Hills, 5017 E Chapman Ave, Orange, CA 92869</p>
+      <p class="text-slate-600 mt-2">The parking is "challenging", so you may need to use a side street. But the staff is very friendly.</p>
+        <a href="https://neworangehills.net/" target="_blank" class="inline-block mt-4 px-4 py-2 bg-teal-600 text-white rounded-lg font-semibold shadow hover:bg-teal-700">New Orange Hills</a>
     </section>
 
-    <section id="videocall" class="mt-12 bg-white p-6 rounded-xl shadow">
-      <h2 class="text-2xl font-bold text-teal-700">Video Conference</h2>
-      <p class="text-slate-600 mt-2">Click below to launch a Zoom meeting.</p>
-      <a href="https://zoom.us/start" target="_blank" class="inline-block mt-4 px-4 py-2 bg-teal-600 text-white rounded-lg font-semibold shadow hover:bg-teal-700">Start Zoom Meeting</a>
-    </section>
-
-    <section id="about" class="mt-10">
-      <h2 class="text-2xl font-bold">About The Duarte Family</h2>
-      <div class="grid md:grid-cols-2 gap-4 mt-4">
-        <div class="bg-white p-5 rounded-xl shadow">
-          <h3 class="font-bold text-lg">Our Mission</h3>
-          <p class="text-slate-600 mt-2">To combine practical skills and environmental stewardship in an inspiring, hands-on learning environment.</p>
+    <section id="final_notes" class="grid md:grid-cols-2 gap-8 mt-6">
+      <div class="bg-white shadow p-6 rounded-2xl">
+      <h2 class="text-2xl font-bold text-teal-700">Built with AI</h2>
+        <p class="text-slate-500 mt-2">We built this website with the latest generative AI tools. Try them out for yourself.</p>
+        <div class="flex gap-4 mt-4">
+          <a href="https://www.chatgpt.com" target="_blank" class="px-4 py-2 bg-teal-600 text-white rounded-lg font-semibold">ChatGPT</a>
+          <a href="https://gemini.google.com" target="_blank" class="px-4 py-2 bg-teal-600 text-white rounded-lg font-semibold">Gemini</a>
         </div>
-        <div class="bg-white p-
+      </div>
+
+      <div class="bg-white shadow p-6 rounded-2xl">
+        <h2 class="text-2xl font-bold text-teal-700">GoFundMe</h2>
+        <p class="text-slate-500 mt-2">You can help me and my family with medical expenses. Thank you for thinking of us.</p>
+        <a href="https://www.gofundme.com/f/mike-duartes-medical" target="_blank" class="inline-block mt-4 px-4 py-2 bg-teal-600 text-white rounded-lg font-semibold shadow hover:bg-teal-700">Visit GoFundMe</a>
+      </div>
+    </section>
+
+    <footer class="text-center text-slate-500 mt-12 mb-4">TheDuarteFamily.org — Built with AI.</footer>
+
+  </main>
+</body>
+</html>
