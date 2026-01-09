@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tens Are Wild Poker</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+
+<body class="bg-slate-100 text-slate-900">
+
+  <!-- Header -->
+  <header class="sticky top-0 z-50 backdrop-blur bg-white/70 shadow-sm">
+    <div class="max-w-6xl mx-auto flex items-center justify-between p-4">
+      <div class="flex items-center gap-3">
+        <div class="w-12 h-12 bg-emerald-600 rounded-xl flex items-center justify-center text-white font-bold">
+          10♠
+        </div>
+        <div>
+          <div class="font-bold">Tens Are Wild Poker</div>
+          <div class="text-xs text-slate-500">Cards • Chips • Bragging Rights</div>
+        </div>
+      </div>
+
+      <nav class="hidden md:flex gap-6 font-semibold text-slate-600">
+        <a href="#next-game" class="hover:text-emerald-600">Next Game</a>
+        <a href="#players" class="hover:text-emerald-600">Players</a>
+        <a href="#rules" class="hover:text-emerald-600">Rules</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto p-6">
+
+    <!-- Hero -->
+    <section class="w-full">
+      <img
+        src="images/poker_table.jpg"
+        alt="Poker Table"
+        class="w-full h-[55vh] object-cover rounded-xl shadow"
+      />
+    </section>
+
+    <!-- Next Game -->
+    <section id="next-game" class="mt-12 bg-white p-6 rounded-xl shadow">
+      <h2 class="text-2xl font-bold text-emerald-700">Next Poker Match</h2>
+      <p class="text-slate-600 mt-2">
+        Shuffle up and deal! Here’s when and where we’re playing next.
+      </p>
+
+      <div class="mt-6 grid sm:grid-cols-2 gap-6">
+        <div class="bg-slate-50 p-4 rounded-lg">
+          <h3 class="font-semibold text-emerald-600">📍 Location</h3>
+          <p class="mt-1 text-slate-700">
+            Mike’s House – New Orange Hills<br/>
+            Orange, CA
+          </p>
+        </div>
+
+        <div class="bg-slate-50 p-4 rounded-lg">
+          <h3 class="font-semibold text-emerald-600">🕒 Date & Time</h3>
+          <p class="mt-1 text-slate-700">
+            Saturday, March 14th<br/>
+            6:30 PM – Late
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Players & Snacks -->
+    <section id="players" class="mt-12 bg-white p-6 rounded-xl shadow">
+      <h2 class="text-2xl font-bold text-emerald-700">Who’s Coming & What They’re Bringing</h2>
+      <p class="text-slate-600 mt-2">
+        No freeloaders — everyone brings something to the table.
+      </p>
+
+      <ul class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- Player -->
+        <li class="bg-slate-50 p-4 rounded-xl">
+          <div class="flex items-center gap-4">
+            <img src="images/player_mike.jpg" class="w-20 h-20 rounded-full object-cover" />
+            <div class="font-semibold">Mike</div>
+          </div>
+
+          <div class="mt-4 space-y-1 text-sm text-slate-700">
+            <label><input type="checkbox" class="mr-2"> Beer</label><br/>
+            <label><input type="checkbox" class="mr-2"> Chips</label><br/>
+            <label><input type="checkbox" class="mr-2"> Sliders</label>
+          </div>
+        </li>
+
+        <!-- Player -->
+        <li class="bg-slate-50 p-4 rounded-xl">
+          <div class="flex items-center gap-4">
+            <img src="images/player_david.jpg" class="w-20 h-20 rounded-full object-cover" />
+            <div class="font-semibold">David</div>
+          </div>
+
+          <div class="mt-4 space-y-1 text-sm text-slate-700">
+            <label><input type="checkbox" class="mr-2"> Pop</label><br/>
+            <label><input type="checkbox" class="mr-2"> Beef Jerky</label>
+          </div>
+        </li>
+
+        <!-- Player -->
+        <li class="bg-slate-50 p-4 rounded-xl">
+          <div class="flex items-center gap-4">
+            <img src="images/player_craig.jpg" class="w-20 h-20 rounded-full object-cover" />
+            <div class="font-semibold">Craig</div>
+          </div>
+
+          <div class="mt-4 space-y-1 text-sm text-slate-700">
+            <label><input type="checkbox" class="mr-2"> Sushi</label><br/>
+            <label><input type="checkbox" class="mr-2"> Chips</label><br/>
+            <label><input type="checkbox" class="mr-2"> Beer</label>
+          </div>
+        </li>
+
+      </ul>
+    </section>
+
+    <!-- Rules -->
+    <section id="rules" class="mt-12 bg-white p-6 rounded-xl shadow">
+      <h2 class="text-2xl font-bold text-emerald-700">Texas Hold ’em Rules</h2>
+      <p class="text-slate-600 mt-2">
+        Simple rules. Endless trash talk.
+      </p>
+
+      <div class="mt-6 space-y-4 text-slate-700">
+        <p>
+          Texas Hold ’em is played with a standard 52-card deck. Each player is dealt
+          two private cards (“hole cards”), and five community cards are dealt face-up
+          in the center of the table.
+        </p>
+
+        <p>
+          Players use any combination of their two hole cards and the five community
+          cards to make the best possible five-card poker hand.
+        </p>
+
+        <ul class="list-disc ml-6 space-y-1">
+          <li>Small blind and big blind are posted before cards are dealt</li>
+          <li>Four betting rounds: pre-flop, flop, turn, and river</li>
+          <li>You may check, bet, call, raise, or fold when it’s your turn</li>
+          <li>Best hand wins the pot at showdown</li>
+        </ul>
+
+        <p>
+          If everyone but one player folds, the remaining player wins immediately —
+          even with seven-high.
+        </p>
+      </div>
+    </section>
+
+    <footer class="text-center text-slate-500 mt-12 mb-4">
+      Tens Are Wild Poker — Deal responsibly.
+    </footer>
+
+  </main>
+</body>
+</html>
